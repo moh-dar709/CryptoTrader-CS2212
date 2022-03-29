@@ -71,7 +71,7 @@ public class MainUI extends JFrame implements ActionListener {
 
 		JPanel north = new JPanel();
 
-		north.add(strategyList);
+//		north.add(strategyList);
 //
 ////		 Set bottom bar
 //		JLabel from = new JLabel("From");
