@@ -67,8 +67,6 @@ public class MainUI extends JFrame implements ActionListener {
 		super("Crypto Trading Tool");
 
 		// Set top bar
-
-
 		JPanel north = new JPanel();
 
 //		north.add(strategyList);
