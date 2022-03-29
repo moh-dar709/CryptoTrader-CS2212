@@ -34,6 +34,7 @@ public class MainUI extends JFrame implements ActionListener {
 	/**
 	 * 
 	 */
+	//test
 	private static final long serialVersionUID = 1L;
 
 	private static MainUI instance;
