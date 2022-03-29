@@ -34,6 +34,7 @@ public class MainUI extends JFrame implements ActionListener {
 	/**
 	 * 
 	 */
+	
 	private static final long serialVersionUID = 1L;
 
 	private static MainUI instance;
@@ -71,7 +72,7 @@ public class MainUI extends JFrame implements ActionListener {
 
 		JPanel north = new JPanel();
 
-//		north.add(strategyList);
+		north.add(strategyList);
 //
 ////		 Set bottom bar
 //		JLabel from = new JLabel("From");
@@ -217,3 +218,5 @@ public class MainUI extends JFrame implements ActionListener {
 	}
 
 }
+//hndnty
+
