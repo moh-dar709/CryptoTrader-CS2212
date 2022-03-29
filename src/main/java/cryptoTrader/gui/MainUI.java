@@ -67,11 +67,13 @@ public class MainUI extends JFrame implements ActionListener {
 		super("Crypto Trading Tool");
 
 		// Set top bar
+
+
 		JPanel north = new JPanel();
 
 //		north.add(strategyList);
-//
-////		 Set bottom bar
+
+		// Set bottom bar
 //		JLabel from = new JLabel("From");
 //		UtilDateModel dateModel = new UtilDateModel();
 //		Properties p = new Properties();
