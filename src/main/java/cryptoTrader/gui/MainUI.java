@@ -60,7 +60,8 @@ public class MainUI extends JFrame implements ActionListener {
 
 		return instance;
 	}
-
+	
+	// constructor
 	private MainUI() {
 
 		// Set window title
@@ -167,11 +168,13 @@ public class MainUI extends JFrame implements ActionListener {
 //		getContentPane().add(west, BorderLayout.WEST);
 	}
 
+	// updates the status of UI
 	public void updateStats(JComponent component) {
 		stats.add(component);
 		stats.revalidate();
 	}
 
+	// displays the ui
 	public static void main(String[] args) {
 		JFrame frame = MainUI.getInstance();
 		frame.setSize(900, 600);
@@ -184,25 +187,32 @@ public class MainUI extends JFrame implements ActionListener {
 		String command = e.getActionCommand();
 		if ("refresh".equals(command)) {
 			for (int count = 0; count < dtm.getRowCount(); count++){
-					Object traderObject = dtm.getValueAt(count, 0);
+				
+					Object traderObject = dtm.getValueAt(count, 0); // creates the trader object
 					if (traderObject == null) {
 						JOptionPane.showMessageDialog(this, "please fill in Trader name on line " + (count + 1) );
 						return;
 					}
-					String traderName = traderObject.toString();
-					Object coinObject = dtm.getValueAt(count, 1);
+					String traderName = traderObject.toString(); // assigns trader name
+					
+					Object coinObject = dtm.getValueAt(count, 1); // creates coin object
 					if (coinObject == null) {
 						JOptionPane.showMessageDialog(this, "please fill in cryptocoin list on line " + (count + 1) );
 						return;
 					}
-					String[] coinNames = coinObject.toString().split(",");
-					Object strategyObject = dtm.getValueAt(count, 2);
+					String[] coinNames = coinObject.toString().split(","); // assigns coin list to object
+					
+					Object strategyObject = dtm.getValueAt(count, 2); // creates strat object
 					if (strategyObject == null) {
 						JOptionPane.showMessageDialog(this, "please fill in strategy name on line " + (count + 1) );
 						return;
 					}
-					String strategyName = strategyObject.toString();
+					String strategyName = strategyObject.toString(); // assigns strat name
+					
+					// this is where we import the input data to action log
 					System.out.println(traderName + " " + Arrays.toString(coinNames) + " " + strategyName);
+					
+					
 	        }
 			stats.removeAll();
 			DataVisualizationCreator creator = new DataVisualizationCreator();

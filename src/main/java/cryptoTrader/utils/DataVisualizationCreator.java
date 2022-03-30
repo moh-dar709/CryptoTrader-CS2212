@@ -53,12 +53,15 @@ public class DataVisualizationCreator {
 //	
 //		
 //		scrollPane.setPreferredSize(new Dimension(800, 300));
-//		table.setFillsViewportHeight(true);;
+//		table.setFillsViewportHeight(true);
 		
 //		MainUI.getInstance().updateStats(scrollPane);
 	}
 	
+	// action log table
 	private void createTableOutput() {
+		// this is where we call action log and loop through its data and plug it in how it is shown below
+		
 		// Dummy dates for demo purposes. These should come from selection menu
 		Object[] columnNames = {"Trader","Strategy","CryptoCoin","Action","Quantity","Price","Date"};
 		
@@ -196,7 +199,10 @@ public class DataVisualizationCreator {
 		MainUI.getInstance().updateStats(chartPanel);
 	}
 	
+	// histogram
 	private void createBar() {
+		// this is where we call action log and loop through its data and plug it in how it is shown below
+		// populated with frequency/number of trades performed
 		
 		DefaultCategoryDataset dataset = new DefaultCategoryDataset();
 //		Those are hard-coded values!!!! 

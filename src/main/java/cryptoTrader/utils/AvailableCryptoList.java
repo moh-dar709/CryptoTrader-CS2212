@@ -26,6 +26,7 @@ public class AvailableCryptoList {
 		return instance;
 	}
 	
+	// constructor
 	private AvailableCryptoList() {
 		findAvailableCryptos();
 	}
@@ -111,4 +112,16 @@ public class AvailableCryptoList {
 		return availableCryptosMap.get(cryptoName);
 	}
 
+	// test on what this class does
+	public static void main(String[] args) {
+		AvailableCryptoList cList = new AvailableCryptoList(); // creates crypto list object
+		String[] lst = cList.getAvailableCryptos(); // gets the list of available crypto coins from api
+		
+		// loops and prints available coins
+		for(int i=0; i<lst.length;i++) {
+			System.out.println(lst[i]);
+		}
+		
+	}
+	
 }
