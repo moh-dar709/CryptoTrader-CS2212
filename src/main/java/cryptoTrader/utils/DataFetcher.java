@@ -80,6 +80,7 @@ public class DataFetcher {
 		return volume;
 	}
 	
+	// this is how this class works
 	public static void main(String[] args) {
 		DataFetcher fetcher = new DataFetcher();
 		double price = fetcher.getPriceForCoin("bitcoin", "30-03-2022");

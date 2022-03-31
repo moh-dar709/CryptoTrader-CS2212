@@ -209,14 +209,19 @@ public class MainUI extends JFrame implements ActionListener {
 					}
 					String strategyName = strategyObject.toString(); // assigns strat name
 					
-					// this is where we import the input data to action log
+					// this is where we import the input data to create brokers
 					System.out.println(traderName + " " + Arrays.toString(coinNames) + " " + strategyName);
-					
-					
 	        }
+			// clears the user input
 			stats.removeAll();
+			
+			// call perform trade here
+			PerformTrade tradeAction = new PerformTrade();
+			
+			// displays the charts
 			DataVisualizationCreator creator = new DataVisualizationCreator();
 			creator.createCharts();
+			
 		} else if ("addTableRow".equals(command)) {
 			dtm.addRow(new String[3]);
 		} else if ("remTableRow".equals(command)) {

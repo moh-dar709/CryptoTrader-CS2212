@@ -31,6 +31,7 @@ import cryptoTrader.gui.MainUI;
 
 public class DataVisualizationCreator {
 	
+	// creates the charts to be displayed
 	public void createCharts() {
 //		createTextualOutput();
 		createTableOutput();
