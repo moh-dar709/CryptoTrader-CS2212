@@ -218,6 +218,8 @@ public class MainUI extends JFrame implements ActionListener {
 			// call perform trade here
 			PerformTrade tradeAction = new PerformTrade();
 			
+			System.out.println("Yay it's working");
+			
 			System.out.println("hehe trade performed"); //-------------------------------------------------
 			
 			// displays the charts
