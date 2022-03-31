@@ -215,9 +215,6 @@ public class MainUI extends JFrame implements ActionListener {
 			// clears the user input
 			stats.removeAll();
 			
-			// call perform trade here
-			PerformTrade tradeAction = new PerformTrade();
-			
 			System.out.println("Yay it's working");
 			
 			System.out.println("hehe trade performed"); //-------------------------------------------------
