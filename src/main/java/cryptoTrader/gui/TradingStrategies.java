@@ -23,15 +23,15 @@ public class TradingStrategies {
 		      System.out.println("Trader: "+broker+" used strategy: "+"B"); //TODO remove
 		      break;
 		  case "Strategy-C":
-			  stratC(broker, coinMap); // do C
+			  stratC(broker, coinMap,database); // do C
 			  System.out.println("Trader: "+broker+" used strategy: "+"C"); //TODO remove
 		      break;
 		  case "Strategy-D":
-			  stratD(broker, coinMap); // do D
+			  stratD(broker, coinMap,database); // do D
 		      System.out.println("Trader: "+broker+" used strategy: "+"D"); //TODO remove
 		      break;
 		  case "None":
-			  stratN(broker, coinMap); // do N
+			  stratN(broker, coinMap,database); // do N
 			  System.out.println("Trader: "+broker+" used strategy: "+"N"); //TODO remove
 			  break;
 		} // end of switch
@@ -85,7 +85,7 @@ public class TradingStrategies {
 		return true;// dummy
 	} // end of stratB
 	
-	private boolean stratC(String broker, HashMap<String, Coin> coinMap) {
+	private boolean stratC(String broker, HashMap<String, Coin> coinMap, ActionLog database) {
 		//TODO Broker-1 Bitcoin
 		
 		//TODO Broker-2 Ethereum
@@ -98,7 +98,7 @@ public class TradingStrategies {
 		return true;// dummy
 	}
 	
-	private boolean stratD(String broker, HashMap<String, Coin> coinMap) {
+	private boolean stratD(String broker, HashMap<String, Coin> coinMap, ActionLog database) {
 		//TODO Broker-1 Bitcoin
 		
 		//TODO Broker-2 Ethereum
@@ -111,7 +111,7 @@ public class TradingStrategies {
 		return true;// dummy
 	}
 	
-	private boolean stratN(String broker, HashMap<String, Coin> coinMap) {
+	private boolean stratN(String broker, HashMap<String, Coin> coinMap, ActionLog database) {
 		//TODO no strat selected
 		
 		
