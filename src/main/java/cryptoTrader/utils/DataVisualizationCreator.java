@@ -38,7 +38,7 @@ public class DataVisualizationCreator {
 		createTableOutput(log);
 //		createTimeSeries();
 //		createScatter();
-		createBar();
+		createBar(log);
 	}
 
 	private void createTextualOutput() {
@@ -207,18 +207,19 @@ public class DataVisualizationCreator {
 	}
 	
 	// histogram
-	private void createBar() {
+	private void createBar(ActionLog log) {
 		// this is where we call action log and loop through its data and plug it in how it is shown below
 		// populated with frequency/number of trades performed
 		
 		DefaultCategoryDataset dataset = new DefaultCategoryDataset();
 //		Those are hard-coded values!!!! 
 //		You will have to come up with a proper datastructure to populate the BarChart with live data!
-		dataset.setValue(6, "Trader-1", "Strategy-A");
-		dataset.setValue(5, "Trader-2", "Strategy-B");
-		dataset.setValue(0, "Trader-3", "Strategy-E");
-		dataset.setValue(1, "Trader-4", "Strategy-C");
-		dataset.setValue(10, "Trader-5", "Strategy-D");
+	  //dataset.setValue(frequency, brokerName, strategyUsed)
+//		dataset.setValue(6, "Trader-1", "Strategy-A");
+//		dataset.setValue(5, "Trader-2", "Strategy-B");
+//		dataset.setValue(0, "Trader-3", "Strategy-C");
+//		dataset.setValue(1, "Trader-4", "Strategy-D");
+//		dataset.setValue(10,"Trader-5", "Fail");
 
 		CategoryPlot plot = new CategoryPlot();
 		BarRenderer barrenderer1 = new BarRenderer();
