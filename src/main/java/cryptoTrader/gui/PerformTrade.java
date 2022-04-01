@@ -65,7 +65,8 @@ public class PerformTrade {
 						"\n\t\tMarket Cap: " + marketCap + 
 						"\n\t\tVolume: "+ volume);
 				//------------------------------------------------------------------------------
-			}
+			} // end of for coins
+			
 			// send data to broker
 			currBroker.setCoinMap(currCoinMap);
 			

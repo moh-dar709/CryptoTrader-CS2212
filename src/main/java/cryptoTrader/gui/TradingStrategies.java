@@ -4,6 +4,10 @@ import java.util.*;
 
 public class TradingStrategies {
 	
+	// instance variables
+	ActionLog database = new ActionLog();
+	int logCount = 0;
+	
 	// constructor
 	public TradingStrategies(String broker, String strat, HashMap<String, Coin> coinMap) {
 		// commence trade
@@ -12,23 +16,23 @@ public class TradingStrategies {
 		switch (strat) {
 		  case "Strategy-A":
 			  stratA(broker, coinMap); // do A
-		      System.out.println("Trader: "+broker+" used strategy: "+"A");
+		      System.out.println("Trader: "+broker+" used strategy: "+"A"); //TODO remove
 		      break;
 		  case "Strategy-B":
 			  stratB(broker, coinMap); // do B
-		      System.out.println("Trader: "+broker+" used strategy: "+"B");
+		      System.out.println("Trader: "+broker+" used strategy: "+"B"); //TODO remove
 		      break;
 		  case "Strategy-C":
 			  stratC(broker, coinMap); // do C
-			  System.out.println("Trader: "+broker+" used strategy: "+"C");
+			  System.out.println("Trader: "+broker+" used strategy: "+"C"); //TODO remove
 		      break;
 		  case "Strategy-D":
 			  stratD(broker, coinMap); // do D
-		      System.out.println("Trader: "+broker+" used strategy: "+"D");
+		      System.out.println("Trader: "+broker+" used strategy: "+"D"); //TODO remove
 		      break;
 		  case "None":
 			  stratN(broker, coinMap); // do N
-			  System.out.println("Trader: "+broker+" used strategy: "+"N");
+			  System.out.println("Trader: "+broker+" used strategy: "+"N"); //TODO remove
 			  break;
 		} // end of switch
 		
@@ -40,6 +44,10 @@ public class TradingStrategies {
 	
 	//Broker strats below
 	private boolean stratA(String broker, HashMap<String, Coin> coinMap) {
+		
+		TradeAction act = new TradeAction("Trader-1", "Strategy-A", "ETH", "Buy", "500", "150.3","13-January-2022");
+		this.database.addActionLog(Integer.toString(logCount), act);
+		
 		// implement if or switch to select broker
 		//TODO Broker-1 Bitcoin
 		

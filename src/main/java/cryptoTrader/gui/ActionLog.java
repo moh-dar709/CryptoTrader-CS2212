@@ -22,19 +22,40 @@ public class ActionLog {
 		return this.actionsMap.get(key);
 	}
 	
-	public Object[] retrieveDataLogs(){
-		List<Object> database = new ArrayList<Object>();
+	public Object[][] retrieveDataLogs(){
+		Object[][] dataLog = new Object[7][7];
 		
-		for (TradeAction action : this.actionsMap.values()) {
-			database.add(action.asArray());
-//			System.out.println(action);
+		
+		for(int j=0; j<this.actionsMap.size(); j++) {
+			TradeAction log = this.actionsMap.get(Integer.toString(j)); // gets current action log
+			Object[] data = log.asArray();
+			for(int k=0;k<7;k++) {
+				dataLog[j][k] = data[k];
+				
+//				String trader = log.getTrader();
+//				String strategy = log.getStrategy();
+//				String cryptocoin = ;
+//				String action;
+//				String quantity;
+//				String price;
+//				String date;
+			}
 		}
 		
-//		Object[] dataLog = new Object[this.actionsMap.size()];
-		Object[] dataLog = database.toArray();
 		
-		// TODO MOH STOPPED HERE - 3:00am :)
 		
+//		List<Object> database = new ArrayList<Object>();
+//		
+//		for (TradeAction action : this.actionsMap.values()) {
+//			database.add(action.asArray());
+////			System.out.println(action);
+//		}
+//		
+////		Object[] dataLog = new Object[this.actionsMap.size()];
+//		Object[] dataLog = database.toArray();
+//		
+//		// TODO MOH STOPPED HERE - 3:00am :)
+//		
 		return dataLog;
 	}
 	

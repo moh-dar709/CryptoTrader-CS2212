@@ -49,4 +49,4 @@ public class Broker {
 		TradingStrategies calcStrat = new TradingStrategies( this.brokerName, this.selectedStrategy, this.coinMap);
 	}
 	
-}
+} // end of file
