@@ -11,9 +11,13 @@ public class Broker {
 	private String selectedStrategy;
 	
 	
-	//constructor
-	public Broker() {
-		
+	
+	
+	//constructor to initialize broker object
+	public Broker(String name, String[] coinsSelected, String strat) {
+		this.brokerName = name;
+		this.coins = coinsSelected;
+		this.selectedStrategy = strat;
 	}
 	
 	public String getName() {
