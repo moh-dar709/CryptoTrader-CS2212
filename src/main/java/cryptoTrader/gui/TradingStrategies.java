@@ -24,7 +24,6 @@ public class TradingStrategies {
 		
 		// Broker-4 BNB
 		
-		
 		return true;// dummy
 	} // end of stratA
 	

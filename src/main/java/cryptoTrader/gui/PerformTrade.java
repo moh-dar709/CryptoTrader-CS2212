@@ -10,13 +10,13 @@ public class PerformTrade {
 	public PerformTrade(List<String> traderList, List<String[]> coinList, List<String> stratList) {
 		
 		// testing arraylist
-		for(int i=0;i<traderList.size();i++) {
-			System.out.println(traderList.get(i));
-			
-//			System.out.println(coinList.get(i));
-			
-			System.out.println(stratList.get(i));
-		}
+//		for(int i=0;i<traderList.size();i++) {
+//			System.out.println(traderList.get(i));
+//			
+////			System.out.println(coinList.get(i));
+//			
+//			System.out.println(stratList.get(i));
+//		}
 		
 		// create broker objects
 //		Brokers brokerList = new Brokers(traderList,coinList,stratList);
@@ -35,9 +35,12 @@ public class PerformTrade {
 				
 				System.out.println(tmp[i]+"=>\tPrice: " + price + 
 						"\n\t\tMarket Cap: " + marketCap + 
-						"\n\t\tVolume: "+volume);
+						"\n\t\tVolume: "+ volume);
 				
 				// send data to broker
+				
+				
+				
 			}
 
 			
@@ -53,6 +56,6 @@ public class PerformTrade {
 	
 	
 	
-	}
+	} // end of constructor
 	
 } // end of file
