@@ -45,21 +45,50 @@ public class TradingStrategies {
 	//Broker strats below
 	private boolean stratA(String broker, HashMap<String, Coin> coinMap, ActionLog database) {
 		System.out.println("im in A");
-		TradeAction act = new TradeAction("Trader-1", "Strategy-A", "ETH", "Buy", "500", "150.3","1-April-2022");
-		int index = database.size();
-		database.addActionLog(Integer.toString(index), act);
+//		TradeAction act = new TradeAction("Trader-1", "Strategy-A", "ETH", "Buy", "500", "150.3","1-April-2022");
+//		int index = database.size();
+//		database.addActionLog(Integer.toString(index), act);
 		
-		TradeAction tst = database.getActionLog(Integer.toString(index));
-		System.out.println("-----------"+tst.getTrader());
+//		TradeAction tst = database.getActionLog(Integer.toString(index));
+//		System.out.println("-----------"+tst.getTrader());
 //		logCount++;
-		// implement if or switch to select broker
-		//TODO Broker-1 Bitcoin
 		
+		// implement if or switch to select broker
+		switch(broker) {
+		//TODO Broker-1 Bitcoin
+		case "Broker-1":
+			// get coins
+			Coin btc = coinMap.get("bitcoin");
+			Coin ada = coinMap.get("cardano");
+			// do calculations
+			if(btc != null && ada != null) {
+				if((btc.getPrice() <= 50000) && (ada.getPrice() > 2)) {
+					TradeAction act = new TradeAction(broker, "Strategy-A", "ADA", "Buy", "10", Double.toString(ada.getPrice()),"1-April-2022");
+					int index = database.size();
+					database.addActionLog(Integer.toString(index), act);
+					System.out.println("----------performed successfully----------");
+				}
+				else {
+					TradeAction act = new TradeAction(broker, "Strategy-A", "ADA", "Fail", "Null", "Null","1-April-2022");
+					int index = database.size();
+					database.addActionLog(Integer.toString(index), act);
+					System.out.println("----------failed successfully----------");
+				}
+			}
+			else {
+				TradeAction act = new TradeAction(broker, "Strategy-A", "NUll", "Fail", "Null", "Null","1-April-2022");
+				int index = database.size();
+				database.addActionLog(Integer.toString(index), act);
+				System.out.println("----------failed successfully----------");
+			}
+			break;
 		//TODO Broker-2 Ethereum
 		
 		//TODO Broker-3 Tether
 		
 		//TODO Broker-4 BNB
+			
+		} // end of switch
 		
 		return true;// dummy
 	} // end of stratA
