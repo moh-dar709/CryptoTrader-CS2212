@@ -115,13 +115,25 @@ public class AvailableCryptoList {
 	// test on what this class does
 	public static void main(String[] args) {
 		AvailableCryptoList cList = new AvailableCryptoList(); // creates crypto list object
-		String[] lst = cList.getAvailableCryptos(); // gets the list of available crypto coins from api
+		String[] tmp = cList.getAvailableCryptos(); // gets the list of available crypto coins from api
 		
 		// loops and prints available coins
-		for(int i=0; i<lst.length;i++) {
-			System.out.println(lst[i]);
-		}
+//		for(int i=0; i<lst.length;i++) {
+//			System.out.println(lst[i]);
+//		}
+		System.out.println("# of coins: " + tmp.length);
 		
+		DataFetcher fetcher = new DataFetcher();
+		for(int i=0; i<tmp.length; i++) {
+			// send a call for each coin
+			double price = fetcher.getPriceForCoin(tmp[i].toLowerCase(), "30-03-2022");
+			double marketCap = fetcher.getMarketCapForCoin(tmp[i].toLowerCase(), "30-03-2022");
+			double volume = fetcher.getVolumeForCoin(tmp[i].toLowerCase(), "30-03-2022");
+			
+			// test code for fetched data
+			System.out.println(tmp[i].toLowerCase()+"=>\tPrice: " + price + 
+					"\n\t\tMarket Cap: " + marketCap + 
+					"\n\t\tVolume: "+ volume);
+		}
 	}
-	
 }

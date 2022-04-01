@@ -10,7 +10,7 @@ public class Broker {
 	private ArrayList<String> strategies;
 	private String selectedStrategy;
 	
-	
+	private HashMap<String, Coin> coinMap = new HashMap<String, Coin>();
 	
 	
 	//constructor to initialize broker object
@@ -36,5 +36,17 @@ public class Broker {
 		return selectedStrategy;
 	}
 	
+	public HashMap<String,Coin> getCoinMap(){
+		return coinMap;
+	}
+	
+	public void setCoinMap(HashMap<String,Coin> newMap){
+		this.coinMap = newMap;
+	}
+	
+	public void calculateStrat() {
+		// calls TradingStrategies class to calculate strat
+		TradingStrategies calcStrat = new TradingStrategies( this.brokerName, this.selectedStrategy, this.coinMap);
+	}
 	
 }

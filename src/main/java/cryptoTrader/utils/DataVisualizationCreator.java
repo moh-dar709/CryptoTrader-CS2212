@@ -61,7 +61,9 @@ public class DataVisualizationCreator {
 	
 	// action log table
 	private void createTableOutput() {
-		// this is where we call action log and loop through its data and plug it in how it is shown below
+		// TODO
+		// this is where we call action log and plug it in how it is shown below
+		// we can call the action log class to retrieve the logs and replace the dummy values below
 		
 		// Dummy dates for demo purposes. These should come from selection menu
 		Object[] columnNames = {"Trader","Strategy","CryptoCoin","Action","Quantity","Price","Date"};
