@@ -186,6 +186,11 @@ public class MainUI extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		String command = e.getActionCommand();
 		if ("refresh".equals(command)) {
+			
+			List<String> traderList = new ArrayList<String>();
+			List<String[]> coinList = new ArrayList<String[]>();
+			List<String> stratList = new ArrayList<String>();
+			
 			for (int count = 0; count < dtm.getRowCount(); count++){
 				
 					Object traderObject = dtm.getValueAt(count, 0); // creates the trader object
@@ -211,12 +216,17 @@ public class MainUI extends JFrame implements ActionListener {
 					
 					// this is where we import the input data to create brokers
 					System.out.println(traderName + " " + Arrays.toString(coinNames) + " " + strategyName);
+					
+					traderList.add(traderName);
+					coinList.add(coinNames);
+					stratList.add(strategyName);
+					
 	        }
 			// clears the user input
 			stats.removeAll();
 			
 			// call perform trade here
-			PerformTrade tradeAction = new PerformTrade();
+			PerformTrade tradeAction = new PerformTrade(traderList,coinList,stratList);
 			
 			System.out.println("hehe trade performed"); //-------------------------------------------------
 			
