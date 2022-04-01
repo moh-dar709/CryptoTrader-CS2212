@@ -8,6 +8,7 @@ public class PerformTrade {
 
 	// instance variables
 	private HashMap<String, Broker> brokerMap = new HashMap<String, Broker>();
+	private ActionLog database = new ActionLog();
 	
 	// constructor
 	public PerformTrade(List<String> traderList, List<String[]> coinList, List<String> stratList) {
@@ -70,10 +71,19 @@ public class PerformTrade {
 			// send data to broker
 			currBroker.setCoinMap(currCoinMap);
 			
+			// calculate strat
 			currBroker.calculateStrat();
 			
 		} // end of for brokers
 	
+		TradeAction act = new TradeAction("Trader-1", "Strategy-A", "ETH", "Buy", "500", "150.3","13-January-2022");
+		database.addActionLog(Integer.toString(1), act);
+		
 	} // end of constructor
+	
+	public ActionLog getDataToVisual() {
+		return this.database;
+	}
+	
 	
 } // end of file

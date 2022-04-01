@@ -33,9 +33,9 @@ import cryptoTrader.gui.MainUI;
 public class DataVisualizationCreator {
 	
 	// creates the charts to be displayed
-	public void createCharts() {
+	public void createCharts(ActionLog log) {
 //		createTextualOutput();
-		createTableOutput();
+		createTableOutput(log);
 //		createTimeSeries();
 //		createScatter();
 		createBar();
@@ -61,7 +61,7 @@ public class DataVisualizationCreator {
 	}
 	
 	// action log table
-	private void createTableOutput() {
+	private void createTableOutput(ActionLog log) {
 		// TODO
 		// this is where we call action log and plug it in how it is shown below
 		// we can call the action log class to retrieve the logs and replace the dummy values below
@@ -69,7 +69,7 @@ public class DataVisualizationCreator {
 		// Dummy dates for demo purposes. These should come from selection menu
 		Object[] columnNames = {"Trader","Strategy","CryptoCoin","Action","Quantity","Price","Date"};
 		
-		ActionLog log = new ActionLog();
+//		ActionLog log = new ActionLog();
 		Object[][] data = log.retrieveDataLogs();
 		System.out.println("doing table things");
 		// Dummy data for demo purposes. These should come from actual fetcher

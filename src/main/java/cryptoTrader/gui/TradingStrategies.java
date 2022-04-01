@@ -44,10 +44,13 @@ public class TradingStrategies {
 	
 	//Broker strats below
 	private boolean stratA(String broker, HashMap<String, Coin> coinMap) {
-		
+		System.out.println("im in A");
 		TradeAction act = new TradeAction("Trader-1", "Strategy-A", "ETH", "Buy", "500", "150.3","13-January-2022");
 		this.database.addActionLog(Integer.toString(logCount), act);
 		
+		TradeAction tst = this.database.getActionLog(Integer.toString(logCount));
+		System.out.println("-----------"+tst.getTrader());
+		logCount++;
 		// implement if or switch to select broker
 		//TODO Broker-1 Bitcoin
 		

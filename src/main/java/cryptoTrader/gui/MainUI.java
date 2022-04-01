@@ -228,9 +228,11 @@ public class MainUI extends JFrame implements ActionListener {
 			
 			System.out.println("hehe trade performed"); //-------------------------------------------------
 			
+			ActionLog log = tradeAction.getDataToVisual();
+			
 			// displays the charts
 			DataVisualizationCreator creator = new DataVisualizationCreator();
-			creator.createCharts();
+			creator.createCharts(log);
 			
 		} else if ("addTableRow".equals(command)) {
 			dtm.addRow(new String[3]);
