@@ -44,9 +44,9 @@ public class Broker {
 		this.coinMap = newMap;
 	}
 	
-	public void calculateStrat() {
+	public void calculateStrat(ActionLog database) {
 		// calls TradingStrategies class to calculate strat
-		TradingStrategies calcStrat = new TradingStrategies( this.brokerName, this.selectedStrategy, this.coinMap);
+		TradingStrategies calcStrat = new TradingStrategies( this.brokerName, this.selectedStrategy, this.coinMap,database);
 	}
 	
 } // end of file

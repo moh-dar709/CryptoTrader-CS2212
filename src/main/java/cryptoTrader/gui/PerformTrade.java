@@ -72,12 +72,12 @@ public class PerformTrade {
 			currBroker.setCoinMap(currCoinMap);
 			
 			// calculate strat
-			currBroker.calculateStrat();
+			currBroker.calculateStrat(this.database);
 			
 		} // end of for brokers
 	
-		TradeAction act = new TradeAction("Trader-1", "Strategy-A", "ETH", "Buy", "500", "150.3","13-January-2022");
-		database.addActionLog(Integer.toString(1), act);
+//		TradeAction act = new TradeAction("Trader-1", "Strategy-A", "ETH", "Buy", "500", "150.3","13-January-2022");
+//		database.addActionLog(Integer.toString(1), act);
 		
 	} // end of constructor
 	

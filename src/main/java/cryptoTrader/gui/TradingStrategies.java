@@ -5,21 +5,21 @@ import java.util.*;
 public class TradingStrategies {
 	
 	// instance variables
-	ActionLog database = new ActionLog();
-	int logCount = 0;
+//	ActionLog database = new ActionLog();
+//	int logCount = 0;
 	
 	// constructor
-	public TradingStrategies(String broker, String strat, HashMap<String, Coin> coinMap) {
+	public TradingStrategies(String broker, String strat, HashMap<String, Coin> coinMap, ActionLog database) {
 		// commence trade
 		
 		// switch to determine which strat
 		switch (strat) {
 		  case "Strategy-A":
-			  stratA(broker, coinMap); // do A
+			  stratA(broker, coinMap, database); // do A
 		      System.out.println("Trader: "+broker+" used strategy: "+"A"); //TODO remove
 		      break;
 		  case "Strategy-B":
-			  stratB(broker, coinMap); // do B
+			  stratB(broker, coinMap,database); // do B
 		      System.out.println("Trader: "+broker+" used strategy: "+"B"); //TODO remove
 		      break;
 		  case "Strategy-C":
@@ -43,14 +43,15 @@ public class TradingStrategies {
 	//TODO process the coin map somewhere	
 	
 	//Broker strats below
-	private boolean stratA(String broker, HashMap<String, Coin> coinMap) {
+	private boolean stratA(String broker, HashMap<String, Coin> coinMap, ActionLog database) {
 		System.out.println("im in A");
-		TradeAction act = new TradeAction("Trader-1", "Strategy-A", "ETH", "Buy", "500", "150.3","13-January-2022");
-		this.database.addActionLog(Integer.toString(logCount), act);
+		TradeAction act = new TradeAction("Trader-1", "Strategy-A", "ETH", "Buy", "500", "150.3","1-April-2022");
+		int index = database.size();
+		database.addActionLog(Integer.toString(index), act);
 		
-		TradeAction tst = this.database.getActionLog(Integer.toString(logCount));
+		TradeAction tst = database.getActionLog(Integer.toString(index));
 		System.out.println("-----------"+tst.getTrader());
-		logCount++;
+//		logCount++;
 		// implement if or switch to select broker
 		//TODO Broker-1 Bitcoin
 		
@@ -63,7 +64,15 @@ public class TradingStrategies {
 		return true;// dummy
 	} // end of stratA
 	
-	private boolean stratB(String broker, HashMap<String, Coin> coinMap) {
+	private boolean stratB(String broker, HashMap<String, Coin> coinMap, ActionLog database) {
+		System.out.println("im in B");
+		TradeAction act = new TradeAction("Trader-2", "Strategy-B", "ETH", "Buy", "500", "150.3","1-April-2022");
+		int index = database.size();
+		database.addActionLog(Integer.toString(index), act);
+		
+		TradeAction tst = database.getActionLog(Integer.toString(index));
+		System.out.println("-----------"+tst.getTrader());
+		
 		//TODO Broker-1 Bitcoin
 		
 		//TODO Broker-2 Ethereum
