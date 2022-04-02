@@ -93,31 +93,9 @@ public class TradingStrategies {
 				}
 				break;
 
-/**
+
 		//TODO Broker-3 Tether
 
-			// if tether is over 1 and terra is under 100, sell 3 terra
-			case "Broker=3" :
-				Coin usdt = coinMap.get("tether");
-				Coin luna = coinMap.get("terra");
-
-				if ((usdt!=null) && (luna!=null)){
-					if ((usdt.getPrice() > 1) && (luna.getPrice()<100)){
-						successfulTrade(broker, "Strategy-A", "LUNA", "Sell", "3", Double.toString(luna.getPrice()), "1-April-2022", database);
-					}
-					else{
-						failedTrade(broker, "Strategy-A", "LUNA", "1-April-2022", database);
-					}
-				}
-				else{
-					badInput(broker, "Strategy-A", "1-April=2022", database);
-				}
-				break;
-		
-
-
-
-**/
 		//TODO Broker-4 BNB
 			
 		} // end of switch
@@ -158,25 +136,6 @@ public class TradingStrategies {
 
 
 			//TODO Broker-3 Tether
-			//if tether is under 1 and avalanche is over 7000, buy 6 avalanche
-			case "Broker-3" :
-				Coin usdt = coinMap.get("tether");
-				Coin avax = coinMap.get("avalanche");
-
-				if ((usdt != null) && (avax != null)) {
-					if ((usdt.getPrice() < 1) && (avax.getPrice() > 7000)) {
-						successfulTrade(broker, "Strategy-B", "AVAX", "Buy", "6", Double.toString(avax.getPrice()), "1-April-2022", database);
-					}
-					else {
-						failedTrade(broker, "Strategy-B", "AVAX","1-April-2022", database );
-					}
-				}
-				else {
-					badInput(broker, "Strategy-B", "1-April-2022", database);
-				}
-				break;
-
-
 
 			//TODO Broker-4 BNB
 		}
@@ -209,25 +168,6 @@ public class TradingStrategies {
 
 			//TODO Broker-3 Tether
 
-			case "Broker=3" :
-				// if tether is under 2 and EOS is over 3, buy 10 EOS
-				Coin usdt = coinMap.get("tether");
-				Coin eos = coinMap.get("eos");
-
-				if ((usdt != null) && (eos != null)) {
-					if ((usdt.getPrice() < 2) && (eos.getPrice() > 3)) {
-						successfulTrade(broker, "Strategy-C", "EOS", "Buy", "10", Double.toString(eos.getPrice()), "1-April-2022", database);
-					}
-					else {
-						failedTrade(broker, "Strategy-C", "EOS","1-April-2022",database);
-					}
-				}
-				else {
-					badInput(broker,"Strategy-C","1-April-2022",database);
-				}
-				break;
-
-
 			//TODO Broker-4 BNB
 		}
 		
@@ -259,23 +199,6 @@ public class TradingStrategies {
 				break;
 
 			//TODO Broker-3 Tether
-			case "Broker-3" :
-				//if tether is over 3 and polkadot is under 20, sell 3 polkadot
-				Coin usdt = coinMap.get("tether");
-				Coin dot = coinMap.get("polkadot");
-
-				if ((usdt != null) && (dot != null)) {
-					if ((usdt.getPrice() > 3) && (dot.getPrice() < 20)) {
-						successfulTrade(broker, "Strategy-D", "DOT", "Sell", "3", Double.toString(dot.getPrice()), "1-April-2022", database);
-					}
-					else {
-						failedTrade(broker, "Strategy-D", "DOT","1-April-2022",database);
-					}
-				}
-				else {
-					badInput(broker,"Strategy-D","1-April-2022",database);
-				}
-				break;
 
 			//TODO Broker-4 BNB
 
