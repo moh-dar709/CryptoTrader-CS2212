@@ -95,7 +95,7 @@ public class TradingStrategies {
 
 
 		//TODO Broker-3 Tether
-		
+
 		//TODO Broker-4 BNB
 			
 		} // end of switch
@@ -235,5 +235,5 @@ public class TradingStrategies {
 		System.out.println("----------failed successfully (BI)----------");
 	}
 	
-	
+	//test
 } // end of file
