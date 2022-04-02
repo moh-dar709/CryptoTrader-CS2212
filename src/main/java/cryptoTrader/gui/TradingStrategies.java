@@ -204,7 +204,7 @@ public class TradingStrategies {
 
 			//TODO Broker-3 Tether
 
-			case "Broker=3" :
+			case "Broker-3" :
 				// if tether is under 2 and EOS is over 3, buy 10 EOS
 				Coin usdt = coinMap.get("tether");
 				Coin eos = coinMap.get("eos");
