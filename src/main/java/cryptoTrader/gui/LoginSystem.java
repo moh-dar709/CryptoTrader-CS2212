@@ -87,8 +87,6 @@ public class LoginSystem extends JFrame implements LoginUI, ActionListener {
             } else {
                 passwordField.setEchoChar('*');
             }
-
-
         }
     }
 }
