@@ -176,7 +176,7 @@ public class MainUI extends JFrame implements ActionListener {
 	// displays the ui
 	public static void main(String[] args) {
 		LoginSystem login = new LoginSystem();
-		login.setBounds(10,10,370,600);
+		login.setPreferredSize(new Dimension(450, 600));
 		login.pack();
 		login.setVisible(true);
 		JFrame frame = MainUI.getInstance();

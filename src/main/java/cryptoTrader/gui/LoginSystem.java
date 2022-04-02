@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class LoginSystem extends JFrame implements LoginUI {
+public class LoginSystem extends JFrame implements LoginUI, ActionListener {
     Container container = getContentPane();
 
     JLabel userLabel = new JLabel("Username");
@@ -44,14 +44,51 @@ public class LoginSystem extends JFrame implements LoginUI {
         container.add(loginButton);
         container.add(resetButton);
     }
+    public void addActionEvent()
+    {
+        //adding Action listener to components
+        loginButton.addActionListener(this);
+        resetButton.addActionListener(this);
+        showPassword.addActionListener(this);
+    }
+
     public LoginSystem() {
         setLayoutManager();
         setLocationAndSize();
         addComponentsToContainer();
+        addActionEvent();
     }
 
+
+    @Override
     public void actionPerformed(ActionEvent e) {
+        //Coding Part of LOGIN button
+        if (e.getSource() == loginButton) {
+            String userText;
+            String pwdText;
+            userText = userTextField.getText();
+            pwdText = passwordField.getText();
+            if (userText.equalsIgnoreCase("mehtab") && pwdText.equalsIgnoreCase("12345")) {
+                JOptionPane.showMessageDialog(this, "Login Successful");
+            } else {
+                JOptionPane.showMessageDialog(this, "Invalid Username or Password");
+            }
 
+        }
+        //Coding Part of RESET button
+        if (e.getSource() == resetButton) {
+            userTextField.setText("");
+            passwordField.setText("");
+        }
+        //Coding Part of showPassword JCheckBox
+        if (e.getSource() == showPassword) {
+            if (showPassword.isSelected()) {
+                passwordField.setEchoChar((char) 0);
+            } else {
+                passwordField.setEchoChar('*');
+            }
+
+
+        }
     }
-
 }
