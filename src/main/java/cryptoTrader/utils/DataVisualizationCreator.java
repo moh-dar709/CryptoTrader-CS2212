@@ -206,12 +206,37 @@ public class DataVisualizationCreator {
 		MainUI.getInstance().updateStats(chartPanel);
 	}
 	
+	private boolean exists(DefaultCategoryDataset dataset, String brokerName, String stratName) {
+        try {
+            dataset.getValue(brokerName, stratName);
+        } catch (Exception e) {
+            System.out.println("I don't exist lmao");
+            return false;
+        }
+        return true;
+    }
+	
 	// histogram
 	private void createBar(ActionLog log) {
 		// this is where we call action log and loop through its data and plug it in how it is shown below
 		// populated with frequency/number of trades performed
 		
-		DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+		 DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+	        Object[][] data = log.retrieveDataLogs();
+	        String[][] inputVal = new String[data.length][];
+	        String brokerName, stratName;
+	        for (Object[] datum : data) {
+	            if (datum[3] != "Fail" && datum[0] != null) {
+	                brokerName = datum[0].toString();
+	                stratName = datum[1].toString();
+	                if (exists(dataset, brokerName, stratName)) {
+	                    dataset.incrementValue(1, brokerName, stratName);
+	                } else {
+	                    dataset.setValue(1, brokerName, stratName);
+	                }
+	            }
+	        }
+	        
 //		Those are hard-coded values!!!! 
 //		You will have to come up with a proper datastructure to populate the BarChart with live data!
 	  //dataset.setValue(frequency, brokerName, strategyUsed)
@@ -229,7 +254,7 @@ public class DataVisualizationCreator {
 		CategoryAxis domainAxis = new CategoryAxis("Strategy");
 		plot.setDomainAxis(domainAxis);
 		LogAxis rangeAxis = new LogAxis("Actions(Buys or Sells)");
-		rangeAxis.setRange(new Range(1.0, 20.0));
+		rangeAxis.setRange(new Range(0.1, 20.0));
 		plot.setRangeAxis(rangeAxis);
 
 		//plot.mapDatasetToRangeAxis(0, 0);// 1st dataset to 1st y-axis
