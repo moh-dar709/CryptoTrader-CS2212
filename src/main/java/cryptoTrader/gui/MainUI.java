@@ -134,6 +134,7 @@ public class MainUI extends JFrame implements ActionListener {
 		remRow.setActionCommand("remTableRow");
 		remRow.addActionListener(this);
 
+
 		scrollPane.setPreferredSize(new Dimension(800, 300));
 		table.setFillsViewportHeight(true);
 		
