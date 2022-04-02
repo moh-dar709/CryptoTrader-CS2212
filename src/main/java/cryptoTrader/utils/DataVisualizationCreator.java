@@ -270,5 +270,5 @@ public class DataVisualizationCreator {
 		chartPanel.setBackground(Color.white);
 		MainUI.getInstance().updateStats(chartPanel);
 	}
-
+//test
 }
