@@ -101,7 +101,7 @@ public class DataVisualizationCreator {
 	
 		
 		scrollPane.setPreferredSize(new Dimension(800, 300));
-		table.setFillsViewportHeight(true);
+		table.setFillsViewportHeight(true);;
 		
 		MainUI.getInstance().updateStats(scrollPane);
 	}
@@ -205,47 +205,21 @@ public class DataVisualizationCreator {
 		chartPanel.setBackground(Color.white);
 		MainUI.getInstance().updateStats(chartPanel);
 	}
-
-	private boolean exists(DefaultCategoryDataset dataset, String brokerName, String stratName) {
-		try {
-			dataset.getValue(brokerName, stratName);
-		} catch (Exception e) {
-			System.out.println("I don't exist lmao");
-			return false;
-		}
-		return true;
-	}
-
+	
 	// histogram
-	private void createBar(ActionLog log){
+	private void createBar(ActionLog log) {
 		// this is where we call action log and loop through its data and plug it in how it is shown below
 		// populated with frequency/number of trades performed
 		
 		DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-		Object[][] data = log.retrieveDataLogs();
-		String[][] inputVal = new String[data.length][];
-		String brokerName, stratName;
-		for (Object[] datum : data) {
-			if (datum[3] != "Fail" && datum[0] != null) {
-				brokerName = datum[0].toString();
-				stratName = datum[1].toString();
-				if (exists(dataset, brokerName, stratName)) {
-					dataset.incrementValue(1, brokerName, stratName);
-				} else {
-					dataset.setValue(1, brokerName, stratName);
-				}
-			}
-		}
-
-
-
 //		Those are hard-coded values!!!! 
 //		You will have to come up with a proper datastructure to populate the BarChart with live data!
-		/*dataset.setValue(6, "Trader-1", "Strategy-A");
-		dataset.setValue(5, "Trader-2", "Strategy-B");
-		dataset.setValue(0, "Trader-3", "Strategy-E");
-		dataset.setValue(1, "Trader-4", "Strategy-C");
-		dataset.setValue(10, "Trader-5", "Strategy-D");*/
+	  //dataset.setValue(frequency, brokerName, strategyUsed)
+//		dataset.setValue(6, "Trader-1", "Strategy-A");
+//		dataset.setValue(5, "Trader-2", "Strategy-B");
+//		dataset.setValue(0, "Trader-3", "Strategy-C");
+//		dataset.setValue(1, "Trader-4", "Strategy-D");
+//		dataset.setValue(10,"Trader-5", "Fail");
 
 		CategoryPlot plot = new CategoryPlot();
 		BarRenderer barrenderer1 = new BarRenderer();
@@ -255,7 +229,7 @@ public class DataVisualizationCreator {
 		CategoryAxis domainAxis = new CategoryAxis("Strategy");
 		plot.setDomainAxis(domainAxis);
 		LogAxis rangeAxis = new LogAxis("Actions(Buys or Sells)");
-		rangeAxis.setRange(new Range(0.1, 20.0));
+		rangeAxis.setRange(new Range(1.0, 20.0));
 		plot.setRangeAxis(rangeAxis);
 
 		//plot.mapDatasetToRangeAxis(0, 0);// 1st dataset to 1st y-axis
@@ -270,5 +244,5 @@ public class DataVisualizationCreator {
 		chartPanel.setBackground(Color.white);
 		MainUI.getInstance().updateStats(chartPanel);
 	}
-//test 1
+
 }
