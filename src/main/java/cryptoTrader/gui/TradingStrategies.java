@@ -123,14 +123,14 @@ public class TradingStrategies {
 
 				if ((eth != null) && (sol != null)) {
 					if ((eth.getPrice() < 3300) && (sol.getPrice() > 100)) {
-						successfulTrade(broker, "Strategy-A", "SOL", "Buy", "4", Double.toString(sol.getPrice()), "1-April-2022", database);
+						successfulTrade(broker, "Strategy-B", "SOL", "Buy", "4", Double.toString(sol.getPrice()), "1-April-2022", database);
 					}
 					else {
-						failedTrade(broker, "Strategy-A", "SOL","1-April-2022",database);
+						failedTrade(broker, "Strategy-B", "SOL","1-April-2022",database);
 					}
 				}
 				else {
-					badInput(broker,"Strategy-A","1-April-2022",database);
+					badInput(broker,"Strategy-B","1-April-2022",database);
 				}
 				break;
 
@@ -155,14 +155,14 @@ public class TradingStrategies {
 
 				if ((eth != null) && (dot != null)) {
 					if ((eth.getPrice() < 4500) && (dot.getPrice() > 20)) {
-						successfulTrade(broker, "Strategy-A", "DOT", "Buy", "4", Double.toString(dot.getPrice()), "1-April-2022", database);
+						successfulTrade(broker, "Strategy-C", "DOT", "Buy", "4", Double.toString(dot.getPrice()), "1-April-2022", database);
 					}
 					else {
-						failedTrade(broker, "Strategy-A", "DOT","1-April-2022",database);
+						failedTrade(broker, "Strategy-C", "DOT","1-April-2022",database);
 					}
 				}
 				else {
-					badInput(broker,"Strategy-A","1-April-2022",database);
+					badInput(broker,"Strategy-C","1-April-2022",database);
 				}
 				break;
 
@@ -187,14 +187,14 @@ public class TradingStrategies {
 
 				if ((eth != null) && (eos != null)) {
 					if ((eth.getPrice() > 3000) && (eos.getPrice() < 3)) {
-						successfulTrade(broker, "Strategy-A", "EOS", "Sell", "15", Double.toString(eos.getPrice()), "1-April-2022", database);
+						successfulTrade(broker, "Strategy-D", "EOS", "Sell", "15", Double.toString(eos.getPrice()), "1-April-2022", database);
 					}
 					else {
-						failedTrade(broker, "Strategy-A", "EOS","1-April-2022",database);
+						failedTrade(broker, "Strategy-D", "EOS","1-April-2022",database);
 					}
 				}
 				else {
-					badInput(broker,"Strategy-A","1-April-2022",database);
+					badInput(broker,"Strategy-D","1-April-2022",database);
 				}
 				break;
 
