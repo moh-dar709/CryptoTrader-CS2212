@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.*;
 
 public class LoginSystem extends JFrame implements LoginUI, ActionListener {
     Container container = getContentPane();
@@ -58,7 +59,35 @@ public class LoginSystem extends JFrame implements LoginUI, ActionListener {
         addComponentsToContainer();
         addActionEvent();
     }
-
+    
+    
+    private boolean verify(String username, String password) throws FileNotFoundException {
+    	try {
+        FileReader fr = new FileReader("credentials.txt");    
+        BufferedReader br = new BufferedReader(fr);
+        br.readLine();
+        br.readLine();
+        
+        while(true) {
+            String user = br.readLine();
+            String pass = br.readLine();
+            System.out.println(user);
+            System.out.println(pass);
+            if(user.toLowerCase().equals(username) && pass.toLowerCase().equals(password)) {
+            	br.close(); 
+            	return true;
+            }
+            if(user == null) {
+            	br.close();
+            	return false;
+            }
+        }
+        
+    	} catch(Exception e) {
+    		return false;
+    	}
+    }
+    
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -68,10 +97,14 @@ public class LoginSystem extends JFrame implements LoginUI, ActionListener {
             String pwdText;
             userText = userTextField.getText();
             pwdText = passwordField.getText();
-            if (userText.equalsIgnoreCase("mehtab") && pwdText.equalsIgnoreCase("12345")) {
+            try {
+            if (verify(userText,pwdText)) {
                 JOptionPane.showMessageDialog(this, "Login Successful");
             } else {
                 JOptionPane.showMessageDialog(this, "Invalid Username or Password");
+            }
+            } catch (Exception FileNotFoundException) {
+            	
             }
 
         }
