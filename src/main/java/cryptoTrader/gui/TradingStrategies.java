@@ -73,8 +73,27 @@ public class TradingStrategies {
 				badInput(broker,"Strategy-A","1-April-2022",database);
 			}
 			break;
+
 		//TODO Broker-2 Ethereum
-		
+			// If ethereum is over 3300 and litecoin is under 90, sell 15 litecoin.
+			case "Broker-2"	:
+				Coin eth = coinMap.get("ethereum");
+				Coin ltc = coinMap.get("litecoin");
+
+				if ((eth != null) && (ltc != null)) {
+					if ((eth.getPrice() > 3300) && (ltc.getPrice() < 90)) {
+						successfulTrade(broker, "Strategy-A", "LTC", "Sell", "15", Double.toString(ltc.getPrice()), "1-April-2022", database);
+					}
+					else {
+						failedTrade(broker, "Strategy-A", "LTC","1-April-2022",database);
+					}
+				}
+				else {
+					badInput(broker,"Strategy-A","1-April-2022",database);
+				}
+				break;
+
+
 		//TODO Broker-3 Tether
 		
 		//TODO Broker-4 BNB
@@ -92,41 +111,98 @@ public class TradingStrategies {
 		
 		TradeAction tst = database.getActionLog(Integer.toString(index));
 		System.out.println("-----------"+tst.getTrader());
-		
-		//TODO Broker-1 Bitcoin
-		
-		//TODO Broker-2 Ethereum
-		
-		//TODO Broker-3 Tether
-		
-		//TODO Broker-4 BNB
-		
-		
+
+		switch(broker) {
+			//TODO Broker-1 Bitcoin
+
+			//TODO Broker-2 Ethereum
+			case "Broker-2"	:
+				// If ethereum is under 3300 and solana is over 100, buy 4 solana.
+				Coin eth = coinMap.get("ethereum");
+				Coin sol = coinMap.get("solana");
+
+				if ((eth != null) && (sol != null)) {
+					if ((eth.getPrice() < 3300) && (sol.getPrice() > 100)) {
+						successfulTrade(broker, "Strategy-A", "SOL", "Buy", "4", Double.toString(sol.getPrice()), "1-April-2022", database);
+					}
+					else {
+						failedTrade(broker, "Strategy-A", "SOL","1-April-2022",database);
+					}
+				}
+				else {
+					badInput(broker,"Strategy-A","1-April-2022",database);
+				}
+				break;
+
+
+			//TODO Broker-3 Tether
+
+			//TODO Broker-4 BNB
+		}
 		return true;// dummy
 	} // end of stratB
 	
 	private boolean stratC(String broker, HashMap<String, Coin> coinMap, ActionLog database) {
-		//TODO Broker-1 Bitcoin
-		
-		//TODO Broker-2 Ethereum
-		
-		//TODO Broker-3 Tether
-		
-		//TODO Broker-4 BNB
-		
+
+		switch (broker) {
+			//TODO Broker-1 Bitcoin
+
+			//TODO Broker-2 Ethereum
+			case "Broker-2"	:
+				// If ethereum is under 4500 and polkadot is over 20, buy 10 polkadot.
+				Coin eth = coinMap.get("ethereum");
+				Coin dot = coinMap.get("polkadot");
+
+				if ((eth != null) && (dot != null)) {
+					if ((eth.getPrice() < 4500) && (dot.getPrice() > 20)) {
+						successfulTrade(broker, "Strategy-A", "DOT", "Buy", "4", Double.toString(dot.getPrice()), "1-April-2022", database);
+					}
+					else {
+						failedTrade(broker, "Strategy-A", "DOT","1-April-2022",database);
+					}
+				}
+				else {
+					badInput(broker,"Strategy-A","1-April-2022",database);
+				}
+				break;
+
+			//TODO Broker-3 Tether
+
+			//TODO Broker-4 BNB
+		}
 		
 		return true;// dummy
 	}
 	
 	private boolean stratD(String broker, HashMap<String, Coin> coinMap, ActionLog database) {
-		//TODO Broker-1 Bitcoin
-		
-		//TODO Broker-2 Ethereum
-		
-		//TODO Broker-3 Tether
-		
-		//TODO Broker-4 BNB
-		
+		switch(broker) {
+
+			//TODO Broker-1 Bitcoin
+
+			//TODO Broker-2 Ethereum
+			case "Broker-2"	:
+				// If ethereum is over 3000 and EOS is under 3, sell 15 EOS.
+				Coin eth = coinMap.get("ethereum");
+				Coin eos = coinMap.get("eos");
+
+				if ((eth != null) && (eos != null)) {
+					if ((eth.getPrice() > 3000) && (eos.getPrice() < 3)) {
+						successfulTrade(broker, "Strategy-A", "EOS", "Sell", "15", Double.toString(eos.getPrice()), "1-April-2022", database);
+					}
+					else {
+						failedTrade(broker, "Strategy-A", "EOS","1-April-2022",database);
+					}
+				}
+				else {
+					badInput(broker,"Strategy-A","1-April-2022",database);
+				}
+				break;
+
+			//TODO Broker-3 Tether
+
+			//TODO Broker-4 BNB
+
+		}
 		
 		return true;// dummy
 	}
