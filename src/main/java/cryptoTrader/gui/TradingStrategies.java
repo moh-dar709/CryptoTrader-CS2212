@@ -93,7 +93,6 @@ public class TradingStrategies {
 				}
 				break;
 
-/**
 		//TODO Broker-3 Tether
 
 			// if tether is over 1 and terra is under 100, sell 3 terra
@@ -114,10 +113,6 @@ public class TradingStrategies {
 				}
 				break;
 		
-
-
-
-**/
 		//TODO Broker-4 BNB
 			
 		} // end of switch
