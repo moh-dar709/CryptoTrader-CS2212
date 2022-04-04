@@ -137,7 +137,7 @@ public class MainUI extends JFrame implements ActionListener {
 
 		//login UI
 		LoginSystem login = new LoginSystem();
-		login.setPreferredSize(new Dimension(450, 600));
+		login.setPreferredSize(new Dimension(350, 400));
 		login.pack();
 		login.setVisible(loginDispVar);
 	}
