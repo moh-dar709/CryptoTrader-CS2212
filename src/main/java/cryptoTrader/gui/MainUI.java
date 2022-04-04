@@ -134,7 +134,6 @@ public class MainUI extends JFrame implements ActionListener {
 		remRow.setActionCommand("remTableRow");
 		remRow.addActionListener(this);
 
-
 		scrollPane.setPreferredSize(new Dimension(800, 300));
 		table.setFillsViewportHeight(true);
 		
@@ -175,26 +174,11 @@ public class MainUI extends JFrame implements ActionListener {
 
 	// displays the ui
 	public static void main(String[] args) {
-		boolean loginDispVar = true;
-		boolean mainDispVar = false;
-
 		//login UI
 		LoginSystem login = new LoginSystem();
-		login.setPreferredSize(new Dimension(450, 600));
+		login.setPreferredSize(new Dimension(350, 400));
 		login.pack();
-		login.setVisible(loginDispVar);
-
-		//main UI
-
-		if(login.getStatus()) {
-			/*loginDispVar = false;
-			JFrame frame = MainUI.getInstance();
-			frame.setSize(900, 600);
-			frame.pack();
-			mainDispVar = true;
-			frame.setVisible(mainDispVar);*/
-			System.out.println("test");
-		}
+		login.setVisible(true);
 	}
 
 	@Override

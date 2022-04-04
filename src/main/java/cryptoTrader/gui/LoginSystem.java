@@ -25,13 +25,13 @@ public class LoginSystem extends JFrame implements LoginUI, ActionListener {
     public void setLocationAndSize()
     {
         //Setting location and Size of each components using setBounds() method.
-        userLabel.setBounds(50,150,100,30);
-        passwordLabel.setBounds(50,220,100,30);
-        userTextField.setBounds(150,150,150,30);
-        passwordField.setBounds(150,220,150,30);
-        showPassword.setBounds(150,250,150,30);
-        loginButton.setBounds(50,300,100,30);
-        resetButton.setBounds(200,300,100,30);
+        userLabel.setBounds(50,100,100,30);
+        passwordLabel.setBounds(50,150,100,30);
+        userTextField.setBounds(150,100,150,30);
+        passwordField.setBounds(150,150,150,30);
+        showPassword.setBounds(150,200,150,30);
+        loginButton.setBounds(50,250,100,30);
+        resetButton.setBounds(200,250,100,30);
 
 
     }
