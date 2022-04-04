@@ -188,17 +188,17 @@ public class TradingStrategies {
 				break;
 
 			//TODO Broker-3 Tether
-			//if tether is under 1 and avalanche is over 7000, buy 6 avalanche
+			//if tether is over 1 and dogecoin is under 2, buy 69 dogecoin
 			case "Broker-3" :
-				Coin usdt = coinMap.get("tether");
-				Coin avax = coinMap.get("avalanche");
+				Coin tether = coinMap.get("tether");
+				Coin dogecoin = coinMap.get("dogecoin");
 
-				if ((usdt != null) && (avax != null)) {
-					if ((usdt.getPrice() < 1) && (avax.getPrice() > 7000)) {
-						successfulTrade(broker, "Strategy-B", "AVAX", "Buy", "6", truncate(avax.getPrice()), this.date, database);
+				if ((tether != null) && (dogecoin != null)) {
+					if ((tether.getPrice() > 1) && (dogecoin.getPrice() < 0.2)) {
+						successfulTrade(broker, "Strategy-B", "DOGE", "Buy", "69", truncate(dogecoin.getPrice()), this.date, database);
 					}
 					else {
-						failedTrade(broker, "Strategy-B", "AVAX",this.date, database );
+						failedTrade(broker, "Strategy-B", "DOGE",this.date, database );
 					}
 				}
 				else {
@@ -456,6 +456,10 @@ public class TradingStrategies {
 		return new DecimalFormat("#.#####").format(price);
 	}
 	
+	/**
+	 * This method gets today's date
+	 * @return a string of today's date
+	 */
 	private String getDate() {
 		Date date = new Date();
 		SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");

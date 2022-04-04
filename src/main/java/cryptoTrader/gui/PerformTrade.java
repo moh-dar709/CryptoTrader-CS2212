@@ -41,10 +41,9 @@ public class PerformTrade {
 			Broker newBroker = new Broker(name, coinsSelected, strat);
 			
 			// add broker to map
-			this.brokerMap.put(name, newBroker); // this overwrites same key value if it exists already
+			this.brokerMap.put(Integer.toString(b), newBroker); // this overwrites same key value if it exists already
 		}
 		
-		// call api and fetch data and store in data structure 
 		/**
 		 * Next a fetcher object is created to fetch coin data from the api. The coin information for each coin in the coin list for each broker is fetched and sent to the respective broker that the coins belonged to
 		 */
@@ -53,7 +52,7 @@ public class PerformTrade {
 		
 		// loops through traders, gets data for chosen coins from api, and sends it to the respective broker
 		for(int k=0; k<traderList.size(); k++) {
-			Broker currBroker = this.brokerMap.get(traderList.get(k)); // gets current broker
+			Broker currBroker = this.brokerMap.get(Integer.toString(k)); // gets current broker
 			String[] currBrokerCoinList = currBroker.getCoins(); // gets the current broker's coin list
 			HashMap<String,Coin> currCoinMap = new HashMap<String, Coin>(); // makes a temporary coin map
 			/**

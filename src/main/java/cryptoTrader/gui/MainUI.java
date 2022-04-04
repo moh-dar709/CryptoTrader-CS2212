@@ -162,6 +162,10 @@ public class MainUI extends JFrame implements ActionListener {
 					JOptionPane.showMessageDialog(this, "please fill in Trader name on line " + (count + 1) );
 					return;
 				}
+				if (!isValid(traderObject.toString())) {
+					JOptionPane.showMessageDialog(this, "please fill in a VALID Trader name on line " + (count + 1) );
+					return;
+				}
 
 				String traderName = traderObject.toString(); //assigns trader name
 
@@ -207,6 +211,22 @@ public class MainUI extends JFrame implements ActionListener {
 			if (selectedRow != -1)
 				dtm.removeRow(selectedRow);
 		}
+	}
+	
+	/**
+	 * This method checks if the trader name input is valid
+	 * @param inp the user input
+	 * @return true if the input is valid, false otherwise
+	 */
+	private boolean isValid(String inp) {
+		
+		List<String> availableBrokers = new ArrayList<String>();
+		availableBrokers.add("Broker-1");
+		availableBrokers.add("Broker-2");
+		availableBrokers.add("Broker-3");
+		availableBrokers.add("Broker-4");
+		
+		return availableBrokers.contains(inp);
 	}
 
 } // end of file
