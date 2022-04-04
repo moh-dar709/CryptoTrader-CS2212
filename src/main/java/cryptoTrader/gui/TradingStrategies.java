@@ -125,6 +125,23 @@ public class TradingStrategies {
 
 		switch(broker) {
 			//TODO Broker-1 Bitcoin
+			case "Broker-1" :
+				//if bitcoin is under 59200 and polkadot is over 25, buy 6 polkadot
+				Coin btc = coinMap.get("bitcoin");
+				Coin dot = coinMap.get("polkadot");
+
+				if ((btc != null) && (dot != null)) {
+					if ((btc.getPrice() < 59200) && (dot.getPrice() > 25)) {
+						successfulTrade(broker, "Strategy-B", "DOT", "Buy", "6", Double.toString(dot.getPrice()), "1-April-2022", database);
+					}
+					else {
+						failedTrade(broker, "Strategy-B", "DOT","1-April-2022", database );
+					}
+				}
+				else {
+					badInput(broker, "Strategy-B", "1-April-2022", database);
+				}
+				break;
 
 			//TODO Broker-2 Ethereum
 			case "Broker-2"	:
@@ -171,7 +188,7 @@ public class TradingStrategies {
 			//if dogecoin under 0.2 and bitcoin is over 55000, sell 1 bitcoin
 			case "Broker-4":
 				Coin doge = coinMap.get("dogecoin");
-				Coin btc = coinMap.get("bitcoin");
+				btc = coinMap.get("bitcoin");
 				if((doge!= null) && (btc!= null)){
 					if((doge.getPrice()<0.2) && (btc.getPrice() > 55000)){
 						successfulTrade(broker, "Strategy-B", "BTC", "Sell", "1", Double.toString(btc.getPrice()), "1-April-2022", database);
@@ -191,6 +208,24 @@ public class TradingStrategies {
 
 		switch (broker) {
 			//TODO Broker-1 Bitcoin
+			// If Bitcoin is under 59400 and solana is over 130, buy 5 solana.
+			case "Broker-1" :
+				Coin btc = coinMap.get("bitcoin");
+				Coin sol = coinMap.get("solana");
+
+				if ((btc != null) && (sol != null)) {
+					if ((btc.getPrice() < 59400) && (sol.getPrice() > 130)) {
+						successfulTrade(broker, "Strategy-C", "SOL", "Buy", "5", Double.toString(sol.getPrice()), "1-April-2022", database);
+					}
+					else {
+						failedTrade(broker, "Strategy-C", "SOL","1-April-2022",database);
+					}
+				}
+				else {
+					badInput(broker,"Strategy-C","1-April-2022",database);
+				}
+				break;
+
 
 			//TODO Broker-2 Ethereum
 			case "Broker-2"	:
@@ -257,6 +292,24 @@ public class TradingStrategies {
 		switch(broker) {
 
 			//TODO Broker-1 Bitcoin
+			case "Broker-1" :
+				// If bitcoin is over 59000 and cardano is under 3, sell 15 cardano.
+				Coin btc = coinMap.get("bitcoin");
+				Coin ada = coinMap.get("cardano");
+
+				if ((btc != null) && (ada != null)) {
+					if ((btc.getPrice() > 59000) && (ada.getPrice() < 3)) {
+						successfulTrade(broker, "Strategy-D", "ADA", "Sell", "15", Double.toString(ada.getPrice()), "1-April-2022", database);
+					}
+					else {
+						failedTrade(broker, "Strategy-D", "ADA","1-April-2022",database);
+					}
+				}
+				else {
+					badInput(broker,"Strategy-D","1-April-2022",database);
+				}
+				break;
+
 
 			//TODO Broker-2 Ethereum
 			case "Broker-2"	:
