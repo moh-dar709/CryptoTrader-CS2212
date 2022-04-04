@@ -13,4 +13,5 @@ public interface LoginUI {
     public void addComponentsToContainer();
 
     public void addActionEvent();
-}
+    
+} // end of file

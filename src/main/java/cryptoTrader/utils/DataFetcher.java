@@ -1,3 +1,7 @@
+/**
+ * provided class that acts as a data fecher from the coingecko API
+ * @author Unknown
+ */
 package cryptoTrader.utils;
 
 import java.io.IOException;
@@ -13,6 +17,12 @@ import com.google.gson.JsonParser;
 
 public class DataFetcher {
 
+	/**
+	 * This method calls the api and gets the data as a json object
+	 * @param id represents the coin name
+	 * @param date represents the date of market
+	 * @return the json object
+	 */
 	private JsonObject getDataForCrypto(String id, String date) {
 
 		String urlString = String.format(
@@ -41,6 +51,12 @@ public class DataFetcher {
 		return null;
 	}
 	
+	/**
+	 * This method gets the price of a coin
+	 * @param id represents the coin
+	 * @param date represents the date
+	 * @return coin price as double
+	 */
 	public double getPriceForCoin(String id, String date) {
 		double price = 0.0;
 		
@@ -54,6 +70,12 @@ public class DataFetcher {
 		return price;
 	}
 	
+	/**
+	 * This method gets the market cap of a coin
+	 * @param id represents the coin
+	 * @param date represents the date
+	 * @return coin market cap as double
+	 */
 	public double getMarketCapForCoin(String id, String date) {
 		double marketCap = 0.0;
 		
@@ -67,6 +89,12 @@ public class DataFetcher {
 		return marketCap;
 	}
 	
+	/**
+	 * This method gets the volume of a coin
+	 * @param id represents the coin
+	 * @param date represents the date
+	 * @return coin volume as double
+	 */
 	public double getVolumeForCoin(String id, String date) {
 		double volume = 0.0;
 		
@@ -81,15 +109,16 @@ public class DataFetcher {
 	}
 	
 	// this is how this class works
-	public static void main(String[] args) {
-		DataFetcher fetcher = new DataFetcher();
-		double price = fetcher.getPriceForCoin("bitcoin", "30-03-2022");
-		double marketCap = fetcher.getMarketCapForCoin("bitcoin", "30-03-2022");
-		double volume = fetcher.getVolumeForCoin("bitcoin", "30-03-2022");
-		
-		System.out.println("Bitcoin=>\tPrice: " + price + 
-								"\n\t\tMarket Cap: " + marketCap + 
-								"\n\t\tVolume: "+volume);
-		
-	}
-}
+//	public static void main(String[] args) {
+//		DataFetcher fetcher = new DataFetcher();
+//		double price = fetcher.getPriceForCoin("bitcoin", "30-03-2022");
+//		double marketCap = fetcher.getMarketCapForCoin("bitcoin", "30-03-2022");
+//		double volume = fetcher.getVolumeForCoin("bitcoin", "30-03-2022");
+//		
+//		System.out.println("Bitcoin=>\tPrice: " + price + 
+//								"\n\t\tMarket Cap: " + marketCap + 
+//								"\n\t\tVolume: "+volume);
+//		
+//	}
+	
+} // end of file
