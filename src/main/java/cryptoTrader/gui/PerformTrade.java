@@ -13,15 +13,6 @@ public class PerformTrade {
 	// constructor
 	public PerformTrade(List<String> traderList, List<String[]> coinList, List<String> stratList) {
 		
-		// testing arraylist
-//		for(int i=0;i<traderList.size();i++) {
-//			System.out.println(traderList.get(i));
-//			
-////			System.out.println(coinList.get(i));
-//			
-//			System.out.println(stratList.get(i));
-//		}
-		
 		// create broker objects
 		for(int b=0;b<traderList.size();b++) {
 			
@@ -75,15 +66,11 @@ public class PerformTrade {
 			currBroker.calculateStrat(this.database);
 			
 		} // end of for brokers
-	
-//		TradeAction act = new TradeAction("Trader-1", "Strategy-A", "ETH", "Buy", "500", "150.3","13-January-2022");
-//		database.addActionLog(Integer.toString(1), act);
 		
 	} // end of constructor
 	
 	public ActionLog getDataToVisual() {
 		return this.database;
 	}
-	
 	
 } // end of file

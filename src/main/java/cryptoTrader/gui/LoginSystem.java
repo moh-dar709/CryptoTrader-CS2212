@@ -33,7 +33,6 @@ public class LoginSystem extends JFrame implements LoginUI, ActionListener {
         loginButton.setBounds(50,300,100,30);
         resetButton.setBounds(200,300,100,30);
 
-
     }
     public void addComponentsToContainer()
     {
@@ -130,5 +129,4 @@ public class LoginSystem extends JFrame implements LoginUI, ActionListener {
             }
         }
     }
-    // ???
-}
+} // end of file

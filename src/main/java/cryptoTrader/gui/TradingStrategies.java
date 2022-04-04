@@ -4,10 +4,6 @@ import java.util.*;
 
 public class TradingStrategies {
 
-	// instance variables
-//	ActionLog database = new ActionLog();
-//	int logCount = 0;
-
 	// constructor
 	public TradingStrategies(String broker, String strat, HashMap<String, Coin> coinMap, ActionLog database) {
 		// commence trade
@@ -30,10 +26,6 @@ public class TradingStrategies {
 				stratD(broker, coinMap,database); // do D
 				System.out.println("Trader: "+broker+" used strategy: "+"D"); //TODO remove
 				break;
-			case "None":
-				stratN(broker, coinMap,database); // do N
-				System.out.println("Trader: "+broker+" used strategy: "+"N"); //TODO remove
-				break;
 		} // end of switch
 
 	} // end of constructor
@@ -45,13 +37,6 @@ public class TradingStrategies {
 	//Broker strats below
 	private boolean stratA(String broker, HashMap<String, Coin> coinMap, ActionLog database) {
 		System.out.println("im in A");
-//		TradeAction act = new TradeAction("Trader-1", "Strategy-A", "ETH", "Buy", "500", "150.3","1-April-2022");
-//		int index = database.size();
-//		database.addActionLog(Integer.toString(index), act);
-
-//		TradeAction tst = database.getActionLog(Integer.toString(index));
-//		System.out.println("-----------"+tst.getTrader());
-//		logCount++;
 
 		// implement if or switch to select broker
 		switch(broker) {
@@ -137,12 +122,12 @@ public class TradingStrategies {
 
 	private boolean stratB(String broker, HashMap<String, Coin> coinMap, ActionLog database) {
 		System.out.println("im in B");
-		TradeAction act = new TradeAction("Trader-2", "Strategy-B", "ETH", "Buy", "500", "150.3","1-April-2022");
-		int index = database.size();
-		database.addActionLog(Integer.toString(index), act);
-
-		TradeAction tst = database.getActionLog(Integer.toString(index));
-		System.out.println("-----------"+tst.getTrader());
+//		TradeAction act = new TradeAction("Trader-2", "Strategy-B", "ETH", "Buy", "500", "150.3","1-April-2022");
+//		int index = database.size();
+//		database.addActionLog(Integer.toString(index), act);
+//
+//		TradeAction tst = database.getActionLog(Integer.toString(index));
+//		System.out.println("-----------"+tst.getTrader());
 
 		switch(broker) {
 			//TODO Broker-1 Bitcoin
@@ -339,13 +324,6 @@ public class TradingStrategies {
 		return true;// dummy
 	}
 
-	private boolean stratN(String broker, HashMap<String, Coin> coinMap, ActionLog database) {
-		//TODO no strat selected
-
-
-		return true;// dummy
-	}
-
 	private void successfulTrade(String broker, String Strat, String coin, String action, String amount, String price,String date,ActionLog database) {
 		TradeAction act = new TradeAction(broker, Strat, coin, action, amount, price,date);
 		int index = database.size();
@@ -368,7 +346,4 @@ public class TradingStrategies {
 	}
 
 
-}
-
-
-// end of file
+} // end of file
