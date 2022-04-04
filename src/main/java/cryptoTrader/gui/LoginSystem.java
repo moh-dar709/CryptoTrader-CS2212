@@ -6,7 +6,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
 
+
 public class LoginSystem extends JFrame implements LoginUI, ActionListener {
+    boolean loginSuccess = false;
     Container container = getContentPane();
 
     JLabel userLabel = new JLabel("Username");
@@ -58,6 +60,7 @@ public class LoginSystem extends JFrame implements LoginUI, ActionListener {
         setLocationAndSize();
         addComponentsToContainer();
         addActionEvent();
+
     }
     
     
@@ -100,6 +103,7 @@ public class LoginSystem extends JFrame implements LoginUI, ActionListener {
             try {
             if (verify(userText,pwdText)) {
                 JOptionPane.showMessageDialog(this, "Login Successful");
+                loginSuccess = true;
             } else {
                 JOptionPane.showMessageDialog(this, "Invalid Username or Password");
             }
@@ -121,5 +125,8 @@ public class LoginSystem extends JFrame implements LoginUI, ActionListener {
                 passwordField.setEchoChar('*');
             }
         }
+    }
+    public boolean getStatus() {
+        return loginSuccess;
     }
 }
