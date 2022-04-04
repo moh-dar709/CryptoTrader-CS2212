@@ -246,7 +246,7 @@ public class TradingStrategies {
 					}
 				}
 				else {
-					badInput(broker, "Strategy-C", "1-April=2022", database);
+					badInput(broker, "Strategy-C", "1-April-2022", database);
 				}
 		}
 
@@ -312,7 +312,6 @@ public class TradingStrategies {
 				else {
 					badInput(broker, "Strategy-D", "1-April=2022", database);
 				}
-
 		}
 
 		return true;// dummy
