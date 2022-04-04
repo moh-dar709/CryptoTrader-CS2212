@@ -233,16 +233,16 @@ public class TradingStrategies {
 
 
 			//TODO Broker-4 Dogecoin
-			//if dogecoin is over 0.15 and cronos is above 0.4, buy 27 cronos
+			//if dogecoin is over 0.15 and cardano is above 1.2, buy 27 cardano
 			case "Broker-4":
 				Coin doge = coinMap.get("dogecoin");
-				Coin cro = coinMap.get("cronos");
-				if((doge!= null) && (cro!= null)){
-					if((doge.getPrice()>0.1) && (cro.getPrice() < 150)){
-						successfulTrade(broker, "Strategy-C", "CRO", "Buy", "27", Double.toString(cro.getPrice()), "1-April-2022", database);
+				Coin ada = coinMap.get("cardano");
+				if((doge!= null) && (ada!= null)){
+					if((doge.getPrice()>0.1) && (ada.getPrice() < 150)){
+						successfulTrade(broker, "Strategy-C", "ADA", "Buy", "27", Double.toString(ada.getPrice()), "1-April-2022", database);
 					}
 					else {
-						failedTrade(broker, "Strategy-C", "CRO", "1-April-2022", database);
+						failedTrade(broker, "Strategy-C", "ADA", "1-April-2022", database);
 					}
 				}
 				else {
