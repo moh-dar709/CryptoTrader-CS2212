@@ -113,7 +113,22 @@ public class TradingStrategies {
 				}
 				break;
 
-			//TODO Broker-4 BNB
+			//TODO Broker-4 Dogecoin
+			//if dogecoin is over 0.10 and Solana is under 150, buy 5 Solana
+			case "Broker-4":
+				Coin doge = coinMap.get("dogecoin");
+				Coin sol = coinMap.get("solana");
+				if((doge!= null) && (sol!= null)){
+					if((doge.getPrice()>0.1) && (sol.getPrice() < 150)){
+						successfulTrade(broker, "Strategy-A", "SOL", "Buy", "5", Double.toString(sol.getPrice()), "1-April-2022", database);
+					}
+					else {
+						failedTrade(broker, "Strategy-A", "SOL", "1-April-2022", database);
+					}
+				}
+				else {
+					badInput(broker, "Strategy-A", "1-April=2022", database);
+				}
 
 		} // end of switch
 
@@ -173,7 +188,22 @@ public class TradingStrategies {
 
 
 
-			//TODO Broker-4 BNB
+			//TODO Broker-4 Dogecoin
+			//if dogecoin under 0.2 and bitcoin is over 55000, sell 1 bitcoin
+			case "Broker-4":
+				Coin doge = coinMap.get("dogecoin");
+				Coin btc = coinMap.get("bitcoin");
+				if((doge!= null) && (btc!= null)){
+					if((doge.getPrice()<0.2) && (btc.getPrice() > 55000)){
+						successfulTrade(broker, "Strategy-B", "BTC", "Sell", "1", Double.toString(btc.getPrice()), "1-April-2022", database);
+					}
+					else {
+						failedTrade(broker, "Strategy-B", "BTC", "1-April-2022", database);
+					}
+				}
+				else {
+					badInput(broker, "Strategy-B", "1-April=2022", database);
+				}
 		}
 		return true;// dummy
 	} // end of stratB
@@ -223,7 +253,22 @@ public class TradingStrategies {
 				break;
 
 
-			//TODO Broker-4 BNB
+			//TODO Broker-4 Dogecoin
+			//if dogecoin is over 0.15 and cronos is above 0.4, buy 27 cronos
+			case "Broker-4":
+				Coin doge = coinMap.get("dogecoin");
+				Coin cro = coinMap.get("cronos");
+				if((doge!= null) && (cro!= null)){
+					if((doge.getPrice()>0.1) && (cro.getPrice() < 150)){
+						successfulTrade(broker, "Strategy-C", "CRO", "Buy", "27", Double.toString(cro.getPrice()), "1-April-2022", database);
+					}
+					else {
+						failedTrade(broker, "Strategy-C", "CRO", "1-April-2022", database);
+					}
+				}
+				else {
+					badInput(broker, "Strategy-C", "1-April=2022", database);
+				}
 		}
 
 		return true;// dummy
@@ -272,7 +317,22 @@ public class TradingStrategies {
 				}
 				break;
 
-			//TODO Broker-4 BNB
+			//TODO Broker-4 Dogecoin
+			//if Dogecoin is above 0.12 and terrausd is over 1, sell 10 terrausd
+			case "Broker-4":
+				Coin doge = coinMap.get("dogecoin");
+				Coin ust = coinMap.get("terrausd");
+				if((doge!= null) && (ust!= null)){
+					if((doge.getPrice()>0.1) && (ust.getPrice() < 150)){
+						successfulTrade(broker, "Strategy-D", "UST", "Sell", "10", Double.toString(ust.getPrice()), "1-April-2022", database);
+					}
+					else {
+						failedTrade(broker, "Strategy-D", "UST", "1-April-2022", database);
+					}
+				}
+				else {
+					badInput(broker, "Strategy-D", "1-April=2022", database);
+				}
 
 		}
 
