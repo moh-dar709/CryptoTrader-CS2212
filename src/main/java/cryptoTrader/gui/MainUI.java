@@ -175,14 +175,26 @@ public class MainUI extends JFrame implements ActionListener {
 
 	// displays the ui
 	public static void main(String[] args) {
+		boolean loginDispVar = true;
+		boolean mainDispVar = false;
+
+		//login UI
 		LoginSystem login = new LoginSystem();
 		login.setPreferredSize(new Dimension(450, 600));
 		login.pack();
-		login.setVisible(true);
-		JFrame frame = MainUI.getInstance();
-		frame.setSize(900, 600);
-		frame.pack();
-		frame.setVisible(false);
+		login.setVisible(loginDispVar);
+
+		//main UI
+
+		if(login.getStatus()) {
+			/*loginDispVar = false;
+			JFrame frame = MainUI.getInstance();
+			frame.setSize(900, 600);
+			frame.pack();
+			mainDispVar = true;
+			frame.setVisible(mainDispVar);*/
+			System.out.println("test");
+		}
 	}
 
 	@Override
