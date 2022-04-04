@@ -6,6 +6,9 @@ import java.util.*;
 public class TradingStrategies {
 
 	// constructor
+	/*
+	 * 
+	 */
 	public TradingStrategies(String broker, String strat, HashMap<String, Coin> coinMap, ActionLog database) {
 		// commence trade
 
@@ -48,7 +51,7 @@ public class TradingStrategies {
 				// do calculations
 				if(btc != null && ada != null) {
 					if((btc.getPrice() <= 50000) && (ada.getPrice() > 2)) {
-						successfulTrade(broker, "Strategy-A", "ADA", "Buy", "10", Double.toString(ada.getPrice()), "1-April-2022", database);
+						successfulTrade(broker, "Strategy-A", "ADA", "Buy", "10", truncate(ada.getPrice()), "1-April-2022", database);
 					}
 					else {
 						failedTrade(broker, "Strategy-A", "ADA","1-April-2022",database);
@@ -67,7 +70,7 @@ public class TradingStrategies {
 
 				if ((eth != null) && (ltc != null)) {
 					if ((eth.getPrice() > 3300) && (ltc.getPrice() < 90)) {
-						successfulTrade(broker, "Strategy-A", "LTC", "Sell", "15", Double.toString(ltc.getPrice()), "1-April-2022", database);
+						successfulTrade(broker, "Strategy-A", "LTC", "Sell", "15", truncate(ltc.getPrice()), "1-April-2022", database);
 					}
 					else {
 						failedTrade(broker, "Strategy-A", "LTC","1-April-2022",database);
@@ -78,23 +81,22 @@ public class TradingStrategies {
 				}
 				break;
 
-
-			//TODO Broker-3 Tether
+			//TODO Broker-3 Tether 
 			// if tether is over 1 and terra is under 100, sell 3 terra
-			case "Broker=3" :
-				Coin usdt = coinMap.get("tether");
-				Coin luna = coinMap.get("terra");
+			case "Broker-3" :
+				Coin tether = coinMap.get("tether");
+				Coin terra = coinMap.get("terrausd");
 
-				if ((usdt!=null) && (luna!=null)){
-					if ((usdt.getPrice() > 1) && (luna.getPrice()<100)){
-						successfulTrade(broker, "Strategy-A", "LUNA", "Sell", "3", Double.toString(luna.getPrice()), "1-April-2022", database);
+				if ((tether!=null) && (terra!=null)){
+					if ((tether.getPrice() > 1) && (terra.getPrice()<100)){
+						successfulTrade(broker, "Strategy-A", "Terra", "Sell", "3", truncate(terra.getPrice()), "1-April-2022", database);
 					}
 					else{
-						failedTrade(broker, "Strategy-A", "LUNA", "1-April-2022", database);
+						failedTrade(broker, "Strategy-A", "Terra", "1-April-2022", database);
 					}
 				}
 				else{
-					badInput(broker, "Strategy-A", "1-April=2022", database);
+					badInput(broker, "Strategy-A", "1-April-2022", database);
 				}
 				break;
 
@@ -105,7 +107,7 @@ public class TradingStrategies {
 				Coin sol = coinMap.get("solana");
 				if((doge!= null) && (sol!= null)){
 					if((doge.getPrice()>0.1) && (sol.getPrice() < 150)){
-						successfulTrade(broker, "Strategy-A", "SOL", "Buy", "5", Double.toString(sol.getPrice()), "1-April-2022", database);
+						successfulTrade(broker, "Strategy-A", "SOL", "Buy", "5", truncate(sol.getPrice()), "1-April-2022", database);
 					}
 					else {
 						failedTrade(broker, "Strategy-A", "SOL", "1-April-2022", database);
@@ -130,7 +132,7 @@ public class TradingStrategies {
 
 				if ((btc != null) && (dot != null)) {
 					if ((btc.getPrice() < 59200) && (dot.getPrice() > 25)) {
-						successfulTrade(broker, "Strategy-B", "DOT", "Buy", "6", Double.toString(dot.getPrice()), "1-April-2022", database);
+						successfulTrade(broker, "Strategy-B", "DOT", "Buy", "6", truncate(dot.getPrice()), "1-April-2022", database);
 					}
 					else {
 						failedTrade(broker, "Strategy-B", "DOT","1-April-2022", database );
@@ -149,7 +151,7 @@ public class TradingStrategies {
 
 				if ((eth != null) && (sol != null)) {
 					if ((eth.getPrice() < 3300) && (sol.getPrice() > 100)) {
-						successfulTrade(broker, "Strategy-B", "SOL", "Buy", "4", Double.toString(sol.getPrice()), "1-April-2022", database);
+						successfulTrade(broker, "Strategy-B", "SOL", "Buy", "4", truncate(sol.getPrice()), "1-April-2022", database);
 					}
 					else {
 						failedTrade(broker, "Strategy-B", "SOL","1-April-2022",database);
@@ -160,7 +162,6 @@ public class TradingStrategies {
 				}
 				break;
 
-
 			//TODO Broker-3 Tether
 			//if tether is under 1 and avalanche is over 7000, buy 6 avalanche
 			case "Broker-3" :
@@ -169,7 +170,7 @@ public class TradingStrategies {
 
 				if ((usdt != null) && (avax != null)) {
 					if ((usdt.getPrice() < 1) && (avax.getPrice() > 7000)) {
-						successfulTrade(broker, "Strategy-B", "AVAX", "Buy", "6", Double.toString(avax.getPrice()), "1-April-2022", database);
+						successfulTrade(broker, "Strategy-B", "AVAX", "Buy", "6", truncate(avax.getPrice()), "1-April-2022", database);
 					}
 					else {
 						failedTrade(broker, "Strategy-B", "AVAX","1-April-2022", database );
@@ -180,8 +181,6 @@ public class TradingStrategies {
 				}
 				break;
 
-
-
 			//TODO Broker-4 Dogecoin
 			//if dogecoin under 0.2 and bitcoin is over 55000, sell 1 bitcoin
 			case "Broker-4":
@@ -189,7 +188,7 @@ public class TradingStrategies {
 				btc = coinMap.get("bitcoin");
 				if((doge!= null) && (btc!= null)){
 					if((doge.getPrice()<0.2) && (btc.getPrice() > 55000)){
-						successfulTrade(broker, "Strategy-B", "BTC", "Sell", "1", Double.toString(btc.getPrice()), "1-April-2022", database);
+						successfulTrade(broker, "Strategy-B", "BTC", "Sell", "1", truncate(btc.getPrice()), "1-April-2022", database);
 					}
 					else {
 						failedTrade(broker, "Strategy-B", "BTC", "1-April-2022", database);
@@ -212,7 +211,7 @@ public class TradingStrategies {
 
 				if ((btc != null) && (sol != null)) {
 					if ((btc.getPrice() < 59400) && (sol.getPrice() > 130)) {
-						successfulTrade(broker, "Strategy-C", "SOL", "Buy", "5", Double.toString(sol.getPrice()), "1-April-2022", database);
+						successfulTrade(broker, "Strategy-C", "SOL", "Buy", "5", truncate(sol.getPrice()), "1-April-2022", database);
 					}
 					else {
 						failedTrade(broker, "Strategy-C", "SOL","1-April-2022",database);
@@ -223,7 +222,6 @@ public class TradingStrategies {
 				}
 				break;
 
-
 			//TODO Broker-2 Ethereum
 			case "Broker-2"	:
 				// If ethereum is under 4500 and polkadot is over 20, buy 10 polkadot.
@@ -232,7 +230,7 @@ public class TradingStrategies {
 
 				if ((eth != null) && (dot != null)) {
 					if ((eth.getPrice() < 4500) && (dot.getPrice() > 20)) {
-						successfulTrade(broker, "Strategy-C", "DOT", "Buy", "4", Double.toString(dot.getPrice()), "1-April-2022", database);
+						successfulTrade(broker, "Strategy-C", "DOT", "Buy", "4", truncate(dot.getPrice()), "1-April-2022", database);
 					}
 					else {
 						failedTrade(broker, "Strategy-C", "DOT","1-April-2022",database);
@@ -244,7 +242,6 @@ public class TradingStrategies {
 				break;
 
 			//TODO Broker-3 Tether
-
 			case "Broker-3" :
 				// if tether is under 2 and EOS is over 3, buy 10 EOS
 				Coin usdt = coinMap.get("tether");
@@ -252,7 +249,7 @@ public class TradingStrategies {
 
 				if ((usdt != null) && (eos != null)) {
 					if ((usdt.getPrice() < 2) && (eos.getPrice() > 3)) {
-						successfulTrade(broker, "Strategy-C", "EOS", "Buy", "10", Double.toString(eos.getPrice()), "1-April-2022", database);
+						successfulTrade(broker, "Strategy-C", "EOS", "Buy", "10", truncate(eos.getPrice()), "1-April-2022", database);
 					}
 					else {
 						failedTrade(broker, "Strategy-C", "EOS","1-April-2022",database);
@@ -263,7 +260,6 @@ public class TradingStrategies {
 				}
 				break;
 
-
 			//TODO Broker-4 Dogecoin
 			//if dogecoin is over 0.15 and cardano is above 1.2, buy 27 cardano
 			case "Broker-4":
@@ -271,7 +267,7 @@ public class TradingStrategies {
 				Coin ada = coinMap.get("cardano");
 				if((doge!= null) && (ada!= null)){
 					if((doge.getPrice()>0.1) && (ada.getPrice() < 150)){
-						successfulTrade(broker, "Strategy-C", "ADA", "Buy", "27", Double.toString(ada.getPrice()), "1-April-2022", database);
+						successfulTrade(broker, "Strategy-C", "ADA", "Buy", "27", truncate(ada.getPrice()), "1-April-2022", database);
 					}
 					else {
 						failedTrade(broker, "Strategy-C", "ADA", "1-April-2022", database);
@@ -285,7 +281,6 @@ public class TradingStrategies {
 
 	private void stratD(String broker, HashMap<String, Coin> coinMap, ActionLog database) {
 		switch(broker) {
-
 			//TODO Broker-1 Bitcoin
 			case "Broker-1" :
 				// If bitcoin is over 59000 and cardano is under 3, sell 15 cardano.
@@ -294,7 +289,7 @@ public class TradingStrategies {
 
 				if ((btc != null) && (ada != null)) {
 					if ((btc.getPrice() > 59000) && (ada.getPrice() < 3)) {
-						successfulTrade(broker, "Strategy-D", "ADA", "Sell", "15", Double.toString(ada.getPrice()), "1-April-2022", database);
+						successfulTrade(broker, "Strategy-D", "ADA", "Sell", "15", truncate(ada.getPrice()), "1-April-2022", database);
 					}
 					else {
 						failedTrade(broker, "Strategy-D", "ADA","1-April-2022",database);
@@ -305,7 +300,6 @@ public class TradingStrategies {
 				}
 				break;
 
-
 			//TODO Broker-2 Ethereum
 			case "Broker-2"	:
 				// If ethereum is over 3000 and EOS is under 3, sell 15 EOS.
@@ -314,7 +308,7 @@ public class TradingStrategies {
 
 				if ((eth != null) && (eos != null)) {
 					if ((eth.getPrice() > 3000) && (eos.getPrice() < 3)) {
-						successfulTrade(broker, "Strategy-D", "EOS", "Sell", "15", Double.toString(eos.getPrice()), "1-April-2022", database);
+						successfulTrade(broker, "Strategy-D", "EOS", "Sell", "15",truncate(eos.getPrice()), "1-April-2022", database);
 					}
 					else {
 						failedTrade(broker, "Strategy-D", "EOS","1-April-2022",database);
@@ -333,7 +327,7 @@ public class TradingStrategies {
 
 				if ((usdt != null) && (dot != null)) {
 					if ((usdt.getPrice() > 3) && (dot.getPrice() < 20)) {
-						successfulTrade(broker, "Strategy-D", "DOT", "Sell", "3", Double.toString(dot.getPrice()), "1-April-2022", database);
+						successfulTrade(broker, "Strategy-D", "DOT", "Sell", "3", truncate(dot.getPrice()), "1-April-2022", database);
 					}
 					else {
 						failedTrade(broker, "Strategy-D", "DOT","1-April-2022",database);
@@ -351,7 +345,7 @@ public class TradingStrategies {
 				Coin ust = coinMap.get("terrausd");
 				if((doge!= null) && (ust!= null)){
 					if((doge.getPrice()>0.1) && (ust.getPrice() < 150)){
-						successfulTrade(broker, "Strategy-D", "UST", "Sell", "10", Double.toString(ust.getPrice()), "1-April-2022", database);
+						successfulTrade(broker, "Strategy-D", "UST", "Sell", "10", truncate(ust.getPrice()), "1-April-2022", database);
 					}
 					else {
 						failedTrade(broker, "Strategy-D", "UST", "1-April-2022", database);
@@ -361,8 +355,7 @@ public class TradingStrategies {
 					badInput(broker, "Strategy-D", "1-April-2022", database);
 				}
 		}
-
-	}
+	} // end of strat D
 
 	private void successfulTrade(String broker, String Strat, String coin, String action, String amount, String price,String date,ActionLog database) {
 		TradeAction act = new TradeAction(broker, Strat, coin, action, amount, price,date);
