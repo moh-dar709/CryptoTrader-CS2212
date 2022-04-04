@@ -13,11 +13,23 @@ public class PerformTrade {
 	private String date;
 	
 	// constructor
+
+	/**
+	 * The perform trade constructor takes in three parameters which are all array lists
+	 * @param traderList : contains the list of traders
+	 * @param coinList : contains the list of coins
+	 * @param stratList : contains the list of strategies to be used
+	 *
+	 */
 	public PerformTrade(List<String> traderList, List<String[]> coinList, List<String> stratList) {
 		
 		this.date = getDate(); // get today's date
 		System.out.println(this.date);
 		// create broker objects
+		/**
+		 * a for loop is used to traverse through these three lists simultaneously to extract information for each trader to create a broker object
+		 * 	 *  the broker object is inserted into the brokerMap hashMap defined above.
+		 */
 		for(int b=0;b<traderList.size();b++) {
 			
 			// get current entry data
@@ -33,7 +45,9 @@ public class PerformTrade {
 		}
 		
 		// call api and fetch data and store in data structure 
-		
+		/**
+		 * Next a fetcher object is created to fetch coin data from the api. The coin information for each coin in the coin list for each broker is fetched and sent to the respective broker that the coins belonged to
+		 */
 		// create fetcher object
 		DataFetcher fetcher = new DataFetcher();
 		
@@ -42,7 +56,9 @@ public class PerformTrade {
 			Broker currBroker = this.brokerMap.get(traderList.get(k)); // gets current broker
 			String[] currBrokerCoinList = currBroker.getCoins(); // gets the current broker's coin list
 			HashMap<String,Coin> currCoinMap = new HashMap<String, Coin>(); // makes a temporary coin map
-			
+			/**
+			 * The coin list is then traversed through using a for loop and a coin object is created using the information fetched from the api
+			 */
 			// loops through coin list
 			for(int i=0; i<currBrokerCoinList.length; i++) {
 				// send a call for coin
@@ -53,6 +69,10 @@ public class PerformTrade {
 				
 				// create coin
 				Coin currCoin = new Coin(name,price,marketCap,volume);
+
+				/**
+				 * each coin object is then added to the coinMap hashMap defined above
+				 */
 				// add coin to temp coin map
 				currCoinMap.put(name, currCoin);
 				
@@ -65,18 +85,28 @@ public class PerformTrade {
 			
 			// send data to broker
 			currBroker.setCoinMap(currCoinMap);
-			
+			/**
+			 * using the information from the coin list and the current coin information the strategy for each broker is calculated
+			 */
 			// calculate strat
 			currBroker.calculateStrat(this.database);
 			
 		} // end of for brokers
 		
 	} // end of constructor
-	
+
+	/**
+	 * Displays the Action Log table to the UI
+	 * @return
+	 */
 	public ActionLog getDataToVisual() {
 		return this.database;
 	}
-	
+
+	/**
+	 * this method is used to get the current date in order to fetch the most up to date information from the api about each coin
+	 * @return : the method returns a string which has the date in the format "dd-MM-YYYY".
+	 */
 	private String getDate() {
 		Date date = new Date();
 		SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
