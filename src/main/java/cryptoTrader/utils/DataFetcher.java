@@ -108,17 +108,4 @@ public class DataFetcher {
 		return volume;
 	}
 	
-	// this is how this class works
-//	public static void main(String[] args) {
-//		DataFetcher fetcher = new DataFetcher();
-//		double price = fetcher.getPriceForCoin("bitcoin", "30-03-2022");
-//		double marketCap = fetcher.getMarketCapForCoin("bitcoin", "30-03-2022");
-//		double volume = fetcher.getVolumeForCoin("bitcoin", "30-03-2022");
-//		
-//		System.out.println("Bitcoin=>\tPrice: " + price + 
-//								"\n\t\tMarket Cap: " + marketCap + 
-//								"\n\t\tVolume: "+volume);
-//		
-//	}
-	
 } // end of file
