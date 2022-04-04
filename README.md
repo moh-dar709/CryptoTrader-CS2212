@@ -3,7 +3,7 @@ To successfully login: use one of the username and password combinations on the 
 
 Any of the following coins can be inputted: bitcoin, cardano, ethereum, eos, litecoin, solana, dogecoin, tether, polkadot, terrausd.
 
-For trading strategies to successfully work, please input: "Broker-1", "Broker-2", "Broker-3" "Broker-4" into the trading client box. For coin names, input coins in lowercase and seperated by a comma with no space in between them (i.e. "ehtereum,bitcoin").
+For trading strategies to successfully work, please input: "Broker-1", "Broker-2", "Broker-3" "Broker-4" into the trading client box. For coin names, input coins in lowercase and seperated by a comma with no space in between them (i.e. "ethereum,bitcoin").
 
 ### Broker-1 specializes in Bitcoin
 - Strategy-A uses bitcoin and cardano.
