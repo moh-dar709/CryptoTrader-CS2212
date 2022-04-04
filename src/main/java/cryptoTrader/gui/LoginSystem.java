@@ -8,7 +8,6 @@ import java.io.*;
 
 
 public class LoginSystem extends JFrame implements LoginUI, ActionListener {
-    boolean loginSuccess = false;
     Container container = getContentPane();
 
     JLabel userLabel = new JLabel("Username");
@@ -16,7 +15,7 @@ public class LoginSystem extends JFrame implements LoginUI, ActionListener {
     JTextField userTextField = new JTextField();
     JPasswordField passwordField = new JPasswordField();
     JButton loginButton = new JButton("Login");
-    JButton resetButton=new JButton("RESET");
+    JButton resetButton=new JButton("Reset");
     JCheckBox showPassword=new JCheckBox("Show Password");
 
     public void setLayoutManager() {
@@ -102,10 +101,15 @@ public class LoginSystem extends JFrame implements LoginUI, ActionListener {
             pwdText = passwordField.getText();
             try {
             if (verify(userText,pwdText)) {
-                JOptionPane.showMessageDialog(this, "Login Successful");
-                loginSuccess = true;
+                //JOptionPane.showMessageDialog(this, "Login Successful");
+                setVisible(false);
+                JFrame frame = MainUI.getInstance();
+                frame.setSize(900, 600);
+                frame.pack();
+                frame.setVisible(true);
             } else {
-                JOptionPane.showMessageDialog(this, "Invalid Username or Password");
+                JOptionPane.showMessageDialog(this, "Invalid credentials. \nProgram will terminate.");
+                System.exit(0);
             }
             } catch (Exception FileNotFoundException) {
             	
@@ -125,8 +129,5 @@ public class LoginSystem extends JFrame implements LoginUI, ActionListener {
                 passwordField.setEchoChar('*');
             }
         }
-    }
-    public boolean getStatus() {
-        return loginSuccess;
     }
 }
