@@ -452,5 +452,7 @@ public class TradingStrategies {
 	private String truncate(Double price) {
 		return new DecimalFormat("#.#####").format(price);
 	}
+	
+	// testing
 
 } // end of file
