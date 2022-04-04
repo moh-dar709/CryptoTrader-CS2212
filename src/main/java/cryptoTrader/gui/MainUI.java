@@ -32,7 +32,7 @@ import cryptoTrader.utils.DataVisualizationCreator;
 
 public class MainUI extends JFrame implements ActionListener {
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 1L;
 
@@ -48,7 +48,7 @@ public class MainUI extends JFrame implements ActionListener {
 
 		return instance;
 	}
-	
+
 	// constructor
 	private MainUI() {
 
@@ -63,7 +63,7 @@ public class MainUI extends JFrame implements ActionListener {
 		trade.addActionListener(this);
 
 		JPanel south = new JPanel();
-		
+
 		south.add(trade);
 
 		dtm = new DefaultTableModel(new Object[] { "Trading Client", "Coin List", "Strategy Name" }, 1);
@@ -134,56 +134,56 @@ public class MainUI extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		String command = e.getActionCommand();
 		if ("refresh".equals(command)) {
-			
+
 			List<String> traderList = new ArrayList<String>();
 			List<String[]> coinList = new ArrayList<String[]>();
 			List<String> stratList = new ArrayList<String>();
-			
+
 			for (int count = 0; count < dtm.getRowCount(); count++){
-				
-					Object traderObject = dtm.getValueAt(count, 0); // creates the trader object
-					if (traderObject == null) {
-						JOptionPane.showMessageDialog(this, "please fill in Trader name on line " + (count + 1) );
-						return;
-					}
-					String traderName = traderObject.toString(); // assigns trader name
-					
-					Object coinObject = dtm.getValueAt(count, 1); // creates coin object
-					if (coinObject == null) {
-						JOptionPane.showMessageDialog(this, "please fill in cryptocoin list on line " + (count + 1) );
-						return;
-					}
-					String[] coinNames = coinObject.toString().split(","); // assigns coin list to object
-					
-					Object strategyObject = dtm.getValueAt(count, 2); // creates strat object
-					if (strategyObject == null) {
-						JOptionPane.showMessageDialog(this, "please fill in strategy name on line " + (count + 1) );
-						return;
-					}
-					String strategyName = strategyObject.toString(); // assigns strat name
-					
-					// this is where we import the input data to create brokers
-					System.out.println(traderName + " " + Arrays.toString(coinNames) + " " + strategyName);
-					
-					traderList.add(traderName);
-					coinList.add(coinNames);
-					stratList.add(strategyName);
-					
-	        }
+
+				Object traderObject = dtm.getValueAt(count, 0); // creates the trader object
+				if (traderObject == null) {
+					JOptionPane.showMessageDialog(this, "please fill in Trader name on line " + (count + 1) );
+					return;
+				}
+				String traderName = traderObject.toString(); // assigns trader name
+
+				Object coinObject = dtm.getValueAt(count, 1); // creates coin object
+				if (coinObject == null) {
+					JOptionPane.showMessageDialog(this, "please fill in cryptocoin list on line " + (count + 1) );
+					return;
+				}
+				String[] coinNames = coinObject.toString().split(","); // assigns coin list to object
+
+				Object strategyObject = dtm.getValueAt(count, 2); // creates strat object
+				if (strategyObject == null) {
+					JOptionPane.showMessageDialog(this, "please fill in strategy name on line " + (count + 1) );
+					return;
+				}
+				String strategyName = strategyObject.toString(); // assigns strat name
+
+				// this is where we import the input data to create brokers
+				System.out.println(traderName + " " + Arrays.toString(coinNames) + " " + strategyName);
+
+				traderList.add(traderName);
+				coinList.add(coinNames);
+				stratList.add(strategyName);
+
+			}
 			// clears the user input
 			stats.removeAll();
-			
+
 			// call perform trade here
 			PerformTrade tradeAction = new PerformTrade(traderList,coinList,stratList);
-			
+
 			System.out.println("hehe trade performed"); //-------------------------------------------------
-			
+
 			ActionLog log = tradeAction.getDataToVisual();
-			
+
 			// displays the charts
 			DataVisualizationCreator creator = new DataVisualizationCreator();
 			creator.createCharts(log);
-			
+
 		} else if ("addTableRow".equals(command)) {
 			dtm.addRow(new String[3]);
 		} else if ("remTableRow".equals(command)) {
