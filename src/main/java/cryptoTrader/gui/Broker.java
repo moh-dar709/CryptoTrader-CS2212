@@ -1,5 +1,5 @@
 /**
- * This method contains information about each Broker, including their name, their coins of interest, and their strategies.
+ * This class contains information about each Broker, including their name, their coins of interest, and their strategies.
  * @author Mohammed Al-Darwish, Disha Puri, Anusha Sheikh, Dexter Yan
  */
 package cryptoTrader.gui;

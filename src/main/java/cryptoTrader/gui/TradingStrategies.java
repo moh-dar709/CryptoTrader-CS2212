@@ -440,7 +440,7 @@ public class TradingStrategies {
 		TradeAction act = new TradeAction(broker, strat, "Null", "Fail", "Null", "Null",date);
 		int index = database.size();
 		database.addActionLog(Integer.toString(index), act);
-		System.out.println("----------failed successfully (BI)----------");
+		System.out.println("----------failed successfully (Bad Input)----------");
 	}
 
 	/**
