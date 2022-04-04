@@ -51,7 +51,7 @@ public class DataVisualizationCreator {
 		
 //		ActionLog log = new ActionLog();
 		Object[][] data = log.retrieveDataLogs();
-		System.out.println("doing table things");
+		System.out.println("doing table things"); //TODO
 
 		JTable table = new JTable(data, columnNames);
 		//table.setPreferredSize(new Dimension(600, 300));

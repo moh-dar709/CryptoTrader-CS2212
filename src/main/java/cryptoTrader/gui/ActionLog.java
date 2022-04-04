@@ -29,7 +29,7 @@ public class ActionLog {
 	}
 	
 	public Object[][] retrieveDataLogs(){
-		Object[][] dataLog = new Object[7][7]; // TODO fix size
+		Object[][] dataLog = new Object[this.actionsMap.size()][7]; // TODO fix size
 		
 		for(int j=0; j<this.actionsMap.size(); j++) {
 			TradeAction log = this.actionsMap.get(Integer.toString(j)); // gets current action log

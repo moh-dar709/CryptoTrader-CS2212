@@ -1,5 +1,6 @@
 package cryptoTrader.gui;
 
+import java.text.DecimalFormat;
 import java.util.*;
 
 public class TradingStrategies {
@@ -32,10 +33,9 @@ public class TradingStrategies {
 
 	// getter method to get the corresponding strat for a certain broker
 	// switch to get appropriate strat for desired broker
-	//TODO process the coin map somewhere	
 
 	//Broker strats below
-	private boolean stratA(String broker, HashMap<String, Coin> coinMap, ActionLog database) {
+	private void stratA(String broker, HashMap<String, Coin> coinMap, ActionLog database) {
 		System.out.println("im in A");
 
 		// implement if or switch to select broker
@@ -116,11 +116,9 @@ public class TradingStrategies {
 				}
 
 		} // end of switch
-
-		return true;// dummy
 	} // end of stratA
 
-	private boolean stratB(String broker, HashMap<String, Coin> coinMap, ActionLog database) {
+	private void stratB(String broker, HashMap<String, Coin> coinMap, ActionLog database) {
 		System.out.println("im in B");
 
 		switch(broker) {
@@ -201,10 +199,9 @@ public class TradingStrategies {
 					badInput(broker, "Strategy-B", "1-April=2022", database);
 				}
 		}
-		return true;// dummy
 	} // end of stratB
 
-	private boolean stratC(String broker, HashMap<String, Coin> coinMap, ActionLog database) {
+	private void stratC(String broker, HashMap<String, Coin> coinMap, ActionLog database) {
 
 		switch (broker) {
 			//TODO Broker-1 Bitcoin
@@ -284,11 +281,9 @@ public class TradingStrategies {
 					badInput(broker, "Strategy-C", "1-April-2022", database);
 				}
 		}
+	} // end of strat C
 
-		return true;// dummy
-	}
-
-	private boolean stratD(String broker, HashMap<String, Coin> coinMap, ActionLog database) {
+	private void stratD(String broker, HashMap<String, Coin> coinMap, ActionLog database) {
 		switch(broker) {
 
 			//TODO Broker-1 Bitcoin
@@ -363,11 +358,10 @@ public class TradingStrategies {
 					}
 				}
 				else {
-					badInput(broker, "Strategy-D", "1-April=2022", database);
+					badInput(broker, "Strategy-D", "1-April-2022", database);
 				}
 		}
 
-		return true;// dummy
 	}
 
 	private void successfulTrade(String broker, String Strat, String coin, String action, String amount, String price,String date,ActionLog database) {
@@ -391,5 +385,9 @@ public class TradingStrategies {
 		System.out.println("----------failed successfully (BI)----------");
 	}
 
+	private String truncate(Double price) {
+		return new DecimalFormat("#.#####").format(price);
+	}
+	
 
 } // end of file
