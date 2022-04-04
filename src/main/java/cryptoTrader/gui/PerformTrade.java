@@ -1,5 +1,6 @@
 package cryptoTrader.gui;
 
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 import cryptoTrader.utils.DataFetcher;
@@ -9,10 +10,13 @@ public class PerformTrade {
 	// instance variables
 	private HashMap<String, Broker> brokerMap = new HashMap<String, Broker>();
 	private ActionLog database = new ActionLog();
+	private String date;
 	
 	// constructor
 	public PerformTrade(List<String> traderList, List<String[]> coinList, List<String> stratList) {
 		
+		this.date = getDate(); // get today's date
+		System.out.println(this.date);
 		// create broker objects
 		for(int b=0;b<traderList.size();b++) {
 			
@@ -43,9 +47,9 @@ public class PerformTrade {
 			for(int i=0; i<currBrokerCoinList.length; i++) {
 				// send a call for coin
 				String name = currBrokerCoinList[i].toLowerCase();
-				double price = fetcher.getPriceForCoin(name, "31-03-2022");
-				double marketCap = fetcher.getMarketCapForCoin(name, "31-03-2022");
-				double volume = fetcher.getVolumeForCoin(name, "31-03-2022");
+				double price = fetcher.getPriceForCoin(name, this.date);
+				double marketCap = fetcher.getMarketCapForCoin(name, this.date);
+				double volume = fetcher.getVolumeForCoin(name, this.date);
 				
 				// create coin
 				Coin currCoin = new Coin(name,price,marketCap,volume);
@@ -73,6 +77,10 @@ public class PerformTrade {
 		return this.database;
 	}
 	
-	//testing
+	private String getDate() {
+		Date date = new Date();
+		SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+		return (formatter.format(date));
+	}
 	
 } // end of file

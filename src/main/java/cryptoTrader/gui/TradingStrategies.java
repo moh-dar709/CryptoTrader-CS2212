@@ -6,6 +6,7 @@
 package cryptoTrader.gui;
 
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class TradingStrategies {
@@ -13,7 +14,7 @@ public class TradingStrategies {
 	/**
 	 * String variable that holds today's date
 	 */
-	private String date = "1-April-2022"; // TODO change to current
+	private String date;
 	
 	/**
 	 * This method is the TradingStrategies constructor. It directs the trade call to the appropriate broker.
@@ -24,6 +25,8 @@ public class TradingStrategies {
 	 * @param database represents the action log database where all current actions are logged
 	 */
 	public TradingStrategies(String broker, String strat, HashMap<String, Coin> coinMap, ActionLog database) {
+		
+		this.date = getDate(); // set date
 		
 		// switch to determine which strategy is requested
 		switch (strat) {
@@ -453,6 +456,10 @@ public class TradingStrategies {
 		return new DecimalFormat("#.#####").format(price);
 	}
 	
-	// testing
+	private String getDate() {
+		Date date = new Date();
+		SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+		return (formatter.format(date));
+	}
 
 } // end of file
