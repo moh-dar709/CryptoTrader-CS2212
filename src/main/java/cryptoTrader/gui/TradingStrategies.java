@@ -122,12 +122,6 @@ public class TradingStrategies {
 
 	private boolean stratB(String broker, HashMap<String, Coin> coinMap, ActionLog database) {
 		System.out.println("im in B");
-//		TradeAction act = new TradeAction("Trader-2", "Strategy-B", "ETH", "Buy", "500", "150.3","1-April-2022");
-//		int index = database.size();
-//		database.addActionLog(Integer.toString(index), act);
-//
-//		TradeAction tst = database.getActionLog(Integer.toString(index));
-//		System.out.println("-----------"+tst.getTrader());
 
 		switch(broker) {
 			//TODO Broker-1 Bitcoin
