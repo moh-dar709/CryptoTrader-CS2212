@@ -30,10 +30,12 @@ import javax.swing.table.TableColumn;
 
 import cryptoTrader.utils.DataVisualizationCreator;
 
+/**
+ * Main UI class
+ * This is where the Login UI and the main trading interface will be displayed
+ */
 public class MainUI extends JFrame implements ActionListener {
-	/**
-	 *
-	 */
+
 	private static final long serialVersionUID = 1L;
 
 	private static MainUI instance;
@@ -49,13 +51,20 @@ public class MainUI extends JFrame implements ActionListener {
 		return instance;
 	}
 
-	// constructor
+	/**
+	 * MainUI constructor
+	 * This is where the trade interface buttons/dropdown menus are created
+	 */
 	private MainUI() {
 
-		// Set window title
+		/**
+		 * Set window title
+		 */
 		super("Crypto Trading Tool");
 
-		// Set top bar
+		/**
+		 * Set top bar
+		 */
 		JPanel north = new JPanel();
 
 		JButton trade = new JButton("Perform Trade");
@@ -99,7 +108,9 @@ public class MainUI extends JFrame implements ActionListener {
 		buttons.add(remRow);
 		east.add(buttons);
 
-		// Set charts region
+		/**
+		 * Sets charts region
+		 */
 		JPanel west = new JPanel();
 		west.setPreferredSize(new Dimension(1250, 650));
 		stats = new JPanel();
@@ -113,23 +124,36 @@ public class MainUI extends JFrame implements ActionListener {
 		getContentPane().add(south, BorderLayout.SOUTH);
 	}
 
-	// updates the status of UI
+	/**
+	 * Updates status of UI
+	 * @param component Takes in component
+	 */
 	public void updateStats(JComponent component) {
 		stats.add(component);
 		stats.revalidate();
 	}
 
-	// displays the ui
+	/**
+	 * Main class
+	 * This is where the loginUI will be displayed
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		boolean loginDispVar = true;
 
-		//login UI
+		/**
+		 * Login UI
+		 */
 		LoginSystem login = new LoginSystem();
 		login.setPreferredSize(new Dimension(450, 600));
 		login.pack();
 		login.setVisible(loginDispVar);
 	}
 
+	/**
+	 * Action performed method
+	 * @param e Takes in an actionEvent
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String command = e.getActionCommand();
@@ -141,28 +165,49 @@ public class MainUI extends JFrame implements ActionListener {
 
 			for (int count = 0; count < dtm.getRowCount(); count++){
 
-				Object traderObject = dtm.getValueAt(count, 0); // creates the trader object
+				/**
+				 * Creates the trader object
+				 */
+				Object traderObject = dtm.getValueAt(count, 0);
 				if (traderObject == null) {
 					JOptionPane.showMessageDialog(this, "please fill in Trader name on line " + (count + 1) );
 					return;
 				}
-				String traderName = traderObject.toString(); // assigns trader name
+				/**
+				 * Assigns trader name
+				 */
+				String traderName = traderObject.toString();
 
-				Object coinObject = dtm.getValueAt(count, 1); // creates coin object
+				/**
+				 * Creates coin object
+				 */
+				Object coinObject = dtm.getValueAt(count, 1);
 				if (coinObject == null) {
 					JOptionPane.showMessageDialog(this, "please fill in cryptocoin list on line " + (count + 1) );
 					return;
 				}
-				String[] coinNames = coinObject.toString().split(","); // assigns coin list to object
+				/**
+				 * Assigns coin list to object
+				 */
+				String[] coinNames = coinObject.toString().split(",");
 
-				Object strategyObject = dtm.getValueAt(count, 2); // creates strat object
+				/**
+				 * Creates strat object
+				 */
+				Object strategyObject = dtm.getValueAt(count, 2);
 				if (strategyObject == null) {
 					JOptionPane.showMessageDialog(this, "please fill in strategy name on line " + (count + 1) );
 					return;
 				}
-				String strategyName = strategyObject.toString(); // assigns strat name
 
-				// this is where we import the input data to create brokers
+				/**
+				 * Assign strat name
+				 */
+				String strategyName = strategyObject.toString();
+
+				/**
+				 * this is where we import the input data to create brokers
+				 */
 				System.out.println(traderName + " " + Arrays.toString(coinNames) + " " + strategyName);
 
 				traderList.add(traderName);
@@ -170,17 +215,24 @@ public class MainUI extends JFrame implements ActionListener {
 				stratList.add(strategyName);
 
 			}
-			// clears the user input
+
+			/**
+			 * Clears user input
+			 */
 			stats.removeAll();
 
-			// call perform trade here
+			/**
+			 * Call perform trade
+			 */
 			PerformTrade tradeAction = new PerformTrade(traderList,coinList,stratList);
 
 			System.out.println("hehe trade performed"); //-------------------------------------------------
 
 			ActionLog log = tradeAction.getDataToVisual();
 
-			// displays the charts
+			/**
+			 * Displays charts
+			 */
 			DataVisualizationCreator creator = new DataVisualizationCreator();
 			creator.createCharts(log);
 
