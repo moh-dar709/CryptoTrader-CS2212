@@ -37,32 +37,21 @@ public class DataVisualizationCreator {
 		createTableOutput(log);
 		createBar(log);
 	}
-
-
 	
 	// action log table
 	private void createTableOutput(ActionLog log) {
-		// TODO
-		// this is where we call action log and plug it in how it is shown below
-		// we can call the action log class to retrieve the logs and replace the dummy values below
-		
-		// Dummy dates for demo purposes. These should come from selection menu
 		Object[] columnNames = {"Trader","Strategy","CryptoCoin","Action","Quantity","Price","Date"};
 		
-//		ActionLog log = new ActionLog();
 		Object[][] data = log.retrieveDataLogs();
-		System.out.println("doing table things"); //TODO
+		System.out.println("Table displayed");
 
 		JTable table = new JTable(data, columnNames);
-		//table.setPreferredSize(new Dimension(600, 300));
 		
 		JScrollPane scrollPane = new JScrollPane(table);
 		scrollPane.setBorder (BorderFactory.createTitledBorder (BorderFactory.createEtchedBorder (),
                 "Trader Actions",
                 TitledBorder.CENTER,
                 TitledBorder.TOP));
-		
-	
 		
 		scrollPane.setPreferredSize(new Dimension(800, 300));
 		table.setFillsViewportHeight(true);;
@@ -102,9 +91,6 @@ public class DataVisualizationCreator {
 		rangeAxis.setRange(new Range(0.1, 20.0));
 		plot.setRangeAxis(rangeAxis);
 
-		//plot.mapDatasetToRangeAxis(0, 0);// 1st dataset to 1st y-axis
-		//plot.mapDatasetToRangeAxis(1, 1); // 2nd dataset to 2nd y-axis
-
 		JFreeChart barChart = new JFreeChart("Actions Performed By Traders So Far", new Font("Serif", java.awt.Font.BOLD, 18), plot,
 				true);
 
@@ -119,7 +105,6 @@ public class DataVisualizationCreator {
         try {
             dataset.getValue(brokerName, stratName);
         } catch (Exception e) {
-            System.out.println("I don't exist lmao");
             return false;
         }
         return true;

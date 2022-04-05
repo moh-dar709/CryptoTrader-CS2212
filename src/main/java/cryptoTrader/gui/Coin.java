@@ -11,8 +11,6 @@ public class Coin {
 	 */
 	private String name;
 	private double price;
-	private double marketCap;
-	private double volume;
 
 	/**
 	 * Constructor for coin
@@ -21,11 +19,9 @@ public class Coin {
 	 * @param mCap market cap of coin
 	 * @param vol volume trade of coin
 	 */
-	public Coin(String name, double p, double mCap, double vol) {
+	public Coin(String name, double p) {
 		this.name = name;
 		this.price = p;
-		this.marketCap = mCap;
-		this.volume = vol;
 	} // end of constructor
 
 	/**
@@ -42,22 +38,6 @@ public class Coin {
 	 */
 	public double getPrice() {
 		return this.price;
-	}
-
-	/**
-	 * marketCap method
-	 * @return coin market cap
-	 */
-	public double getMarketCap() {
-		return this.marketCap;
-	}
-
-	/**
-	 * getVolume method
-	 * @return coin volume trade
-	 */
-	public double getVolume() {
-		return this.volume;
 	}
 	
 } // end of file

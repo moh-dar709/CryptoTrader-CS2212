@@ -193,12 +193,13 @@ public class MainUI extends JFrame implements ActionListener {
 
 			}
 
-			stats.removeAll();  //clears user input
+			stats.removeAll();  //clears
 
 			PerformTrade tradeAction = new PerformTrade(traderList,coinList,stratList);  //call perform trade
 
-			System.out.println("hehe trade performed"); //-------------------------------------------------
+			System.out.println("hehe trade performed");
 
+			// call action log
 			ActionLog log = tradeAction.getDataToVisual();
 
 			DataVisualizationCreator creator = new DataVisualizationCreator(); //displays charts

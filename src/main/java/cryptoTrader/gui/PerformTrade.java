@@ -63,11 +63,9 @@ public class PerformTrade {
 				// send a call for coin
 				String name = currBrokerCoinList[i].toLowerCase();
 				double price = fetcher.getPriceForCoin(name, this.date);
-				double marketCap = fetcher.getMarketCapForCoin(name, this.date);
-				double volume = fetcher.getVolumeForCoin(name, this.date);
 				
 				// create coin
-				Coin currCoin = new Coin(name,price,marketCap,volume);
+				Coin currCoin = new Coin(name,price);
 
 				/**
 				 * each coin object is then added to the coinMap hashMap defined above
@@ -76,9 +74,7 @@ public class PerformTrade {
 				currCoinMap.put(name, currCoin);
 				
 				//-----------------------test code for fetched data-----------------------------
-				System.out.println(currBrokerCoinList[i].toLowerCase()+"=>\tPrice: " + price + 
-						"\n\t\tMarket Cap: " + marketCap + 
-						"\n\t\tVolume: "+ volume);
+				System.out.println(currBrokerCoinList[i].toLowerCase()+"=>\tPrice: " + price);
 				//------------------------------------------------------------------------------
 			} // end of for coins
 			
