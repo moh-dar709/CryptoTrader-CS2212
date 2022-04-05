@@ -35,4 +35,4 @@ For trading strategies to successfully work, please input: "Broker-1", "Broker-2
 - Strategy-D uses dogecoin and terrausd.
 
 
-We got inspiration for the LoginSystem class from a tutorial found online: https://www.tutorialsfield.com/login-form-in-java-swing-with-source-code/. Only the JFrame elements were inspred by the tutorial, integrating the LoginSystem into the the program was done by us.
+We got inspiration for the LoginSystem class from a tutorial found online: https://www.tutorialsfield.com/login-form-in-java-swing-with-source-code/. Only the JFrame elements were inspired by the tutorial, integrating the LoginSystem into the the program was done by us.
