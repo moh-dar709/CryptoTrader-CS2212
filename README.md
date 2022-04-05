@@ -39,4 +39,4 @@ We got inspiration for the LoginSystem class from a tutorial found online: https
 
 
 ### API Limitations
-According to CoinGecko's Terms of Service (https://www.coingecko.com/en/api_terms), CoinGecko API is limited to 8 calls per second. Due to this, adding more than 4 trades at once will not work.
+According to CoinGecko's Terms of Service (https://www.coingecko.com/en/api_terms), CoinGecko API is limited to 8 calls per second. Due to this, multiple trades at once may cause errors.

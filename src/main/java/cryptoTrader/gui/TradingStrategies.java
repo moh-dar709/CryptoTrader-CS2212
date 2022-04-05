@@ -32,19 +32,19 @@ public class TradingStrategies {
 		switch (strat) {
 			case "Strategy-A":
 				stratA(broker, coinMap, database); // do A
-				System.out.println("Trader: "+broker+" used strategy: "+"A"); //TODO remove
+				System.out.println("Trader: "+broker+" used strategy: "+"A");
 				break;
 			case "Strategy-B":
 				stratB(broker, coinMap,database); // do B
-				System.out.println("Trader: "+broker+" used strategy: "+"B"); //TODO remove
+				System.out.println("Trader: "+broker+" used strategy: "+"B");
 				break;
 			case "Strategy-C":
 				stratC(broker, coinMap,database); // do C
-				System.out.println("Trader: "+broker+" used strategy: "+"C"); //TODO remove
+				System.out.println("Trader: "+broker+" used strategy: "+"C");
 				break;
 			case "Strategy-D":
 				stratD(broker, coinMap,database); // do D
-				System.out.println("Trader: "+broker+" used strategy: "+"D"); //TODO remove
+				System.out.println("Trader: "+broker+" used strategy: "+"D");
 				break;
 		} // end of switch
 
@@ -61,9 +61,8 @@ public class TradingStrategies {
 
 		// switch to select broker
 		switch(broker) {
-			//TODO Broker-1 Bitcoin
-			// if bitcoin is under 50000 and cardano is over 2, buy 10 cardano
 			case "Broker-1":
+				// if bitcoin is under 50000 and cardano is over 2, buy 10 cardano
 				// get coins
 				Coin btc = coinMap.get("bitcoin");
 				Coin ada = coinMap.get("cardano");
@@ -81,9 +80,8 @@ public class TradingStrategies {
 				}
 				break;
 
-			//TODO Broker-2 Ethereum
-			// If ethereum is over 3300 and litecoin is under 90, sell 15 litecoin.
 			case "Broker-2"	:
+				// If ethereum is over 3300 and litecoin is under 90, sell 15 litecoin.
 				Coin eth = coinMap.get("ethereum");
 				Coin ltc = coinMap.get("litecoin");
 				
@@ -100,9 +98,9 @@ public class TradingStrategies {
 				}
 				break;
 
-			//TODO Broker-3 Tether 
-			// if tether is over 1 and terra is under 100, sell 3 terra
+
 			case "Broker-3" :
+				// if tether is over 1 and terra is under 100, sell 3 terra
 				Coin tether = coinMap.get("tether");
 				Coin terra = coinMap.get("terrausd");
 
@@ -119,9 +117,9 @@ public class TradingStrategies {
 				}
 				break;
 
-			//TODO Broker-4 Dogecoin
-			//if dogecoin is over 0.10 and Solana is under 150, buy 5 Solana
+
 			case "Broker-4":
+				//if dogecoin is over 0.10 and Solana is under 150, buy 5 Solana
 				Coin doge = coinMap.get("dogecoin");
 				Coin sol = coinMap.get("solana");
 				if((doge!= null) && (sol!= null)){
@@ -149,7 +147,6 @@ public class TradingStrategies {
 	private void stratB(String broker, HashMap<String, Coin> coinMap, ActionLog database) {
 
 		switch(broker) {
-			//TODO Broker-1 Bitcoin
 			case "Broker-1" :
 				//if bitcoin is under 59200 and polkadot is over 25, buy 6 polkadot
 				Coin btc = coinMap.get("bitcoin");
@@ -168,7 +165,6 @@ public class TradingStrategies {
 				}
 				break;
 
-			//TODO Broker-2 Ethereum
 			case "Broker-2"	:
 				// If ethereum is under 3300 and solana is over 100, buy 4 solana.
 				Coin eth = coinMap.get("ethereum");
@@ -187,9 +183,8 @@ public class TradingStrategies {
 				}
 				break;
 
-			//TODO Broker-3 Tether
-			//if tether is over 1 and dogecoin is under 2, buy 69 dogecoin
 			case "Broker-3" :
+				//if tether is over 1 and dogecoin is under 2, buy 69 dogecoin
 				Coin tether = coinMap.get("tether");
 				Coin dogecoin = coinMap.get("dogecoin");
 
@@ -206,9 +201,9 @@ public class TradingStrategies {
 				}
 				break;
 
-			//TODO Broker-4 Dogecoin
-			//if dogecoin under 0.2 and bitcoin is over 55000, sell 1 bitcoin
+
 			case "Broker-4":
+				//if dogecoin under 0.2 and bitcoin is over 55000, sell 1 bitcoin
 				Coin doge = coinMap.get("dogecoin");
 				btc = coinMap.get("bitcoin");
 				if((doge!= null) && (btc!= null)){
@@ -235,9 +230,8 @@ public class TradingStrategies {
 	private void stratC(String broker, HashMap<String, Coin> coinMap, ActionLog database) {
 
 		switch (broker) {
-			//TODO Broker-1 Bitcoin
-			// If Bitcoin is under 59400 and solana is over 130, buy 5 solana.
 			case "Broker-1" :
+				// If Bitcoin is under 59400 and solana is over 130, buy 5 solana.
 				Coin btc = coinMap.get("bitcoin");
 				Coin sol = coinMap.get("solana");
 
@@ -254,7 +248,7 @@ public class TradingStrategies {
 				}
 				break;
 
-			//TODO Broker-2 Ethereum
+
 			case "Broker-2"	:
 				// If ethereum is under 4500 and polkadot is over 20, buy 10 polkadot.
 				Coin eth = coinMap.get("ethereum");
@@ -273,7 +267,7 @@ public class TradingStrategies {
 				}
 				break;
 
-			//TODO Broker-3 Tether
+
 			case "Broker-3" :
 				// if tether is under 2 and EOS is over 3, buy 10 EOS
 				Coin usdt = coinMap.get("tether");
@@ -292,9 +286,9 @@ public class TradingStrategies {
 				}
 				break;
 
-			//TODO Broker-4 Dogecoin
-			//if dogecoin is over 0.15 and cardano is above 1.2, buy 27 cardano
+
 			case "Broker-4":
+				//if dogecoin is over 0.15 and cardano is above 1.2, buy 27 cardano
 				Coin doge = coinMap.get("dogecoin");
 				Coin ada = coinMap.get("cardano");
 				if((doge!= null) && (ada!= null)){
@@ -320,7 +314,6 @@ public class TradingStrategies {
 	 */
 	private void stratD(String broker, HashMap<String, Coin> coinMap, ActionLog database) {
 		switch(broker) {
-			//TODO Broker-1 Bitcoin
 			case "Broker-1" :
 				// If bitcoin is over 59000 and cardano is under 3, sell 15 cardano.
 				Coin btc = coinMap.get("bitcoin");
@@ -339,7 +332,7 @@ public class TradingStrategies {
 				}
 				break;
 
-			//TODO Broker-2 Ethereum
+
 			case "Broker-2"	:
 				// If ethereum is over 3000 and EOS is under 3, sell 15 EOS.
 				Coin eth = coinMap.get("ethereum");
@@ -358,7 +351,7 @@ public class TradingStrategies {
 				}
 				break;
 
-			//TODO Broker-3 Tether
+
 			case "Broker-3" :
 				//if tether is over 3 and polkadot is under 20, sell 3 polkadot
 				Coin usdt = coinMap.get("tether");
@@ -377,9 +370,9 @@ public class TradingStrategies {
 				}
 				break;
 
-			//TODO Broker-4 Dogecoin
-			//if Dogecoin is above 0.12 and terrausd is over 1, sell 10 terrausd
+
 			case "Broker-4":
+				//if Dogecoin is above 0.12 and terrausd is over 1, sell 10 terrausd
 				Coin doge = coinMap.get("dogecoin");
 				Coin ust = coinMap.get("terrausd");
 				if((doge!= null) && (ust!= null)){
