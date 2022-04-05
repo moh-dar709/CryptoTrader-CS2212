@@ -16,8 +16,6 @@ public class Coin {
 	 * Constructor for coin
 	 * @param name name of coin
 	 * @param p price of coin
-	 * @param mCap market cap of coin
-	 * @param vol volume trade of coin
 	 */
 	public Coin(String name, double p) {
 		this.name = name;

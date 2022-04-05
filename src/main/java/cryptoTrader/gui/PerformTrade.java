@@ -92,7 +92,7 @@ public class PerformTrade {
 
 	/**
 	 * Displays the Action Log table to the UI
-	 * @return
+	 * @return the action log database
 	 */
 	public ActionLog getDataToVisual() {
 		return this.database;
