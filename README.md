@@ -36,3 +36,7 @@ For trading strategies to successfully work, please input: "Broker-1", "Broker-2
 
 
 We got inspiration for the LoginSystem class from a tutorial found online: https://www.tutorialsfield.com/login-form-in-java-swing-with-source-code/. Only the JFrame elements were inspired by the tutorial, integrating the LoginSystem into the the program was done by us.
+
+
+### API Limitations
+According to CoinGecko's Terms of Service (https://www.coingecko.com/en/api_terms), CoinGecko API is limited to 8 calls per second. Due to this, adding more than 4 trades at once will not work.
